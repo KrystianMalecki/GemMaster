@@ -9,10 +9,8 @@ public class PlayerScript : MonoBehaviour
     public float jump;
     private float horizontalMove;
     public bool facingRight = true;
-    public float speed = 1f;
+    public float speed;
     public BoxCollider2D col;
-
-    public bool useForce;
 
     void Flip()
     {
@@ -28,24 +26,12 @@ public class PlayerScript : MonoBehaviour
         return rayCastHit.collider != null;
     }
 
-    void Update()
+    void FixedUpdate()
     {
+        horizontalMove = Input.GetAxisRaw("Horizontal");
 
-        horizontalMove = Input.GetAxis("Horizontal");
-
-        if (horizontalMove > 0.4f || horizontalMove < -0.4f)
-        {
-            if (useForce)
-            {
-               // rbBody.AddRelativeForce(Vector2.right * speed * Time.deltaTime * horizontalMove );
-                rbBody.velocity +=Vector2.one* Vector2.right * (speed * Time.deltaTime * horizontalMove);
-
-            }
-            else
-            {
-                transform.position += transform.right * (speed * Time.deltaTime * horizontalMove);
-            }
-        }
+        rbBody.velocity = new Vector2(horizontalMove * speed, rbBody.velocity.y);
+        
 
         if (horizontalMove < 0 && facingRight)
         {
@@ -56,23 +42,16 @@ public class PlayerScript : MonoBehaviour
         {
             Flip();
         }
+    }
 
+     void Update()
+    {
         if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.Joystick1Button0) || Input.GetKeyDown(KeyCode.UpArrow))
         {
             if (IsGrounded())
             {
-                if (useForce)
-                {
-                  // rbBody.AddRelativeForce(Vector2.up * jump);
-                    rbBody.velocity += Vector2.up * jump;
-
-                }
-                else
-                {
-                    rbBody.velocity = Vector2.up * jump;
-                }
+                rbBody.AddForce(Vector2.up * jump);
             }
         }
-
     }
 }

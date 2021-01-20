@@ -10,8 +10,12 @@ public class CameraScript : MonoBehaviour
 
     void Update()
     {
+        /*
         newPositionx = Mathf.SmoothDamp(transform.position.x, target.position.x, ref xVelocity, smoothTimex);
         newPositiony = Mathf.SmoothDamp(transform.position.y, Mathf.Sqrt(target.position.y * 3) + 2f, ref yVelocity, smoothTimey);
         transform.position = new Vector3(newPositionx, newPositiony, transform.position.z);
+        */
+
+        transform.position = new Vector3(target.position.x, target.position.y, transform.position.z);
     }
 }
