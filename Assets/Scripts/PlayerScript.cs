@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PlayerScript : MonoBehaviour
 {
@@ -14,6 +12,7 @@ public class PlayerScript : MonoBehaviour
     public float speed = 1f;
     public BoxCollider2D col;
 
+    public bool useForce;
     void Flip()
     {
         facingRight = !facingRight;
@@ -30,28 +29,49 @@ public class PlayerScript : MonoBehaviour
 
     void Update()
     {
-        
-            horizontalMove = Input.GetAxis("Horizontal");
 
-            if (horizontalMove > 0.4f || horizontalMove < -0.4f)
+        horizontalMove = Input.GetAxis("Horizontal");
+
+        if (horizontalMove > 0.4f || horizontalMove < -0.4f)
+        {
+            if (useForce)
+            {
+               // rbBody.AddRelativeForce(Vector2.right * speed * Time.deltaTime * horizontalMove );
+                rbBody.velocity +=Vector2.one* transform.right * (speed * Time.deltaTime * horizontalMove);
+
+            }
+            else
             {
                 transform.position += transform.right * (speed * Time.deltaTime * horizontalMove);
             }
+        }
 
-            if (horizontalMove < 0 && facingRight)
-            {
-                Flip();
-            }
+        if (horizontalMove < 0 && facingRight)
+        {
+            Flip();
+        }
 
-            if (horizontalMove > 0 && !facingRight)
-            {
-                Flip();
-            }
+        if (horizontalMove > 0 && !facingRight)
+        {
+            Flip();
+        }
 
-            if ((Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.Joystick1Button0) || Input.GetKeyDown(KeyCode.UpArrow)) && IsGrounded())
+        if (Input.GetKey(KeyCode.W) || Input.GetKeyDown(KeyCode.Joystick1Button0) || Input.GetKey(KeyCode.UpArrow))
+        {
+            if (IsGrounded())
             {
-                rbBody.velocity = Vector2.up * jump;
+                if (useForce)
+                {
+                  // rbBody.AddRelativeForce(Vector2.up * jump);
+                    rbBody.velocity += Vector2.up * jump;
+
+                }
+                else
+                {
+                    rbBody.velocity = Vector2.up * jump;
+                }
             }
+        }
 
     }
 }
