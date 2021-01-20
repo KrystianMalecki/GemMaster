@@ -13,6 +13,7 @@ public class PlayerScript : MonoBehaviour
     public BoxCollider2D col;
 
     public bool useForce;
+
     void Flip()
     {
         facingRight = !facingRight;
