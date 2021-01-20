@@ -135,6 +135,7 @@ GameObject:
   - component: {fileID: 68627487}
   - component: {fileID: 68627486}
   - component: {fileID: 68627489}
+  - component: {fileID: 68627490}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -176,7 +177,7 @@ Camera:
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
-  orthographic: 0
+  orthographic: 1
   orthographic size: 5
   m_Depth: -1
   m_CullingMask:
@@ -238,6 +239,21 @@ MonoBehaviour:
   m_RequiresDepthTexture: 0
   m_RequiresColorTexture: 0
   m_Version: 2
+--- !u!114 &68627490
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 68627485}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 169584ef35e3d424cbf0e2dda8542550, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 1395637958}
+  smoothTimex: 0.3
+  smoothTimey: 0.2
 --- !u!1 &492317929
 GameObject:
   m_ObjectHideFlags: 0
@@ -321,6 +337,7 @@ GameObject:
   - component: {fileID: 528489505}
   - component: {fileID: 528489504}
   - component: {fileID: 528489506}
+  - component: {fileID: 528489507}
   m_Layer: 0
   m_Name: TV
   m_TagString: Untagged
@@ -409,6 +426,25 @@ MonoBehaviour:
   playerScript: {fileID: 1395637959}
   speedx: 0.5
   speedy: 0.5
+--- !u!95 &528489507
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 528489503}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b5e94075aebd4d445bcb35063a036577, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &925810086
 GameObject:
   m_ObjectHideFlags: 0
@@ -701,9 +737,9 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   rbBody: {fileID: 1395637960}
-  jump: 5
+  jump: 10
   facingRight: 1
-  speed: 2
+  speed: 7
   col: {fileID: 2104791798}
 --- !u!50 &1395637960
 Rigidbody2D:
