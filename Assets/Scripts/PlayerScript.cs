@@ -37,7 +37,7 @@ public class PlayerScript : MonoBehaviour
             if (useForce)
             {
                // rbBody.AddRelativeForce(Vector2.right * speed * Time.deltaTime * horizontalMove );
-                rbBody.velocity +=Vector2.one* transform.right * (speed * Time.deltaTime * horizontalMove);
+                rbBody.velocity +=Vector2.one* Vector2.right * (speed * Time.deltaTime * horizontalMove);
 
             }
             else
@@ -56,7 +56,7 @@ public class PlayerScript : MonoBehaviour
             Flip();
         }
 
-        if (Input.GetKey(KeyCode.W) || Input.GetKeyDown(KeyCode.Joystick1Button0) || Input.GetKey(KeyCode.UpArrow))
+        if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.Joystick1Button0) || Input.GetKeyDown(KeyCode.UpArrow))
         {
             if (IsGrounded())
             {

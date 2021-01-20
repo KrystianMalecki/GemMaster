@@ -225,9 +225,9 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   rbBody: {fileID: 526536480}
-  jump: 100
-  facingRight: 1
-  speed: 10
+  jump: 20
+  facingRight: 0
+  speed: 2500
   col: {fileID: 526536479}
   useForce: 1
 --- !u!61 &526536479
@@ -269,9 +269,9 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 1
   m_Mass: 1
-  m_LinearDrag: 0.5
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_LinearDrag: 3
+  m_AngularDrag: 2
+  m_GravityScale: 5
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1

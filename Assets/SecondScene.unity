@@ -741,6 +741,7 @@ MonoBehaviour:
   facingRight: 1
   speed: 7
   col: {fileID: 2104791798}
+  useForce: 0
 --- !u!50 &1395637960
 Rigidbody2D:
   serializedVersion: 4

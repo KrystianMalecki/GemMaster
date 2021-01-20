@@ -9,7 +9,6 @@ public class TVscript : MonoBehaviour
     float xVelocity = 0.0f, yVelocity = 0.0f, newPositionx, newPositiony, closestDistance;
     public float speedx, speedy;
     private GameObject closest;
-
     void Update()
     {
         FindClosestEnemy();
@@ -66,4 +65,5 @@ public class TVscript : MonoBehaviour
             }
         }
     }
+   
 }
