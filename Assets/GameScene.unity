@@ -302,7 +302,6 @@ MonoBehaviour:
   facingRight: 0
   speed: 10
   groundCheckCol: {fileID: 1590882930}
-  playerCol: {fileID: 526536479}
   anim: {fileID: 526536483}
   lightPoint: {fileID: 556898768}
 --- !u!61 &526536479
@@ -4873,7 +4872,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.011577502, y: -0.0045644045}
@@ -4897,7 +4896,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1590882929}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.492, z: 0}
+  m_LocalPosition: {x: 0, y: -0.47, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 526536482}

@@ -11,7 +11,6 @@ public class PlayerScript : MonoBehaviour
     public bool facingRight = true;
     public float speed;
     public BoxCollider2D groundCheckCol;
-    public BoxCollider2D playerCol;
     public Animator anim;
     public Transform lightPoint;
 
@@ -25,25 +24,16 @@ public class PlayerScript : MonoBehaviour
 
     bool IsGrounded()
     {
-       // RaycastHit2D rayCastHit = Physics2D.Raycast(col.bounds.center, Vector2.down, col.bounds.extents.y + 0.2f, platformLayerMask);
-       // return rayCastHit.collider != null;
-
-        if (groundCheckCol.IsTouchingLayers(platformLayerMask))
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
+        RaycastHit2D rayCastHit = Physics2D.BoxCast(groundCheckCol.bounds.center, groundCheckCol.bounds.size, 0f, Vector2.down, 0.2f, platformLayerMask);
+        return rayCastHit.collider != null;
     }
 
     void FixedUpdate()
     {          
        
         horizontalMove = Input.GetAxisRaw("Horizontal");
-                                     
-        rbBody.velocity = new Vector2(horizontalMove * speed, rbBody.velocity.y);        
+
+        rbBody.velocity += new Vector2(horizontalMove * speed, rbBody.velocity.y);
 
 
         if (horizontalMove < 0 && facingRight)
