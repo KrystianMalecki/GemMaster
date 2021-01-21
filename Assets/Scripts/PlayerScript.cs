@@ -11,7 +11,7 @@ public class PlayerScript : MonoBehaviour
     public bool facingRight = true;
     public float speed;
     public BoxCollider2D col;
-
+    public Animator anim;
     void Flip()
     {
         facingRight = !facingRight;
@@ -22,7 +22,7 @@ public class PlayerScript : MonoBehaviour
 
     bool IsGrounded()
     {
-        RaycastHit2D rayCastHit = Physics2D.Raycast(col.bounds.center, Vector2.down, col.bounds.extents.y + 0.1f, platformLayerMask);
+        RaycastHit2D rayCastHit = Physics2D.Raycast(col.bounds.center, Vector2.down, col.bounds.extents.y + 0.2f, platformLayerMask);
         return rayCastHit.collider != null;
     }
 
@@ -42,6 +42,7 @@ public class PlayerScript : MonoBehaviour
         {
             Flip();
         }
+        SetAnim();
     }
 
      void Update()
@@ -50,8 +51,18 @@ public class PlayerScript : MonoBehaviour
         {
             if (IsGrounded())
             {
+                anim.Play("jump");
                 rbBody.AddForce(Vector2.up * jump);
             }
+        }
+    }
+    public void SetAnim()
+    {
+        if (anim != null)
+        {
+            anim.SetFloat("speedx", Mathf.Abs( rbBody.velocity.x));
+            anim.SetFloat("speedy", Mathf.Abs(rbBody.velocity.y));
+
         }
     }
 }
