@@ -1,19 +1,20 @@
 ﻿using UnityEngine;
-
+using ConditionalAttribute;
 public class PlayerScript : MonoBehaviour
 {
     [SerializeField]
-    private LayerMask platformLayerMask;
+    private bool showMoreData;
+    [ConditionalField("showMoreData")]public LayerMask platformLayerMask;
 
-    public Rigidbody2D rbBody;
-    public float jump;
+    [ConditionalField("showMoreData")] public Rigidbody2D ridgidBody2D;
+    public float jumpPower;
     private float horizontalMove;
-    public bool facingRight = true;
-    public float speed;
-    public BoxCollider2D groundCheckCol;
-    public BoxCollider2D playerCol;
-    public Animator anim;
-    public Transform lightPoint;
+    [ConditionalField("showMoreData")] public bool facingRight = true;
+    [ConditionalField("showMoreData")] public float speed;
+    [ConditionalField("showMoreData")] public BoxCollider2D groundCheckCol;
+    [ConditionalField("showMoreData")] public BoxCollider2D playerCol;
+    [ConditionalField("showMoreData")] public Animator animator;
+    [ConditionalField("showMoreData")] public Transform tvPoint;
 
     void Flip()
     {
@@ -23,8 +24,8 @@ public class PlayerScript : MonoBehaviour
         gameObject.transform.localScale = scale;
     }
 
-    bool IsGrounded()
-    {
+    bool IsGrounded() => groundCheckCol.IsTouchingLayers(platformLayerMask);
+   /* {
        // RaycastHit2D rayCastHit = Physics2D.Raycast(col.bounds.center, Vector2.down, col.bounds.extents.y + 0.2f, platformLayerMask);
        // return rayCastHit.collider != null;
 
@@ -36,14 +37,14 @@ public class PlayerScript : MonoBehaviour
         {
             return false;
         }
-    }
+    }*/
 
     void FixedUpdate()
     {          
        
         horizontalMove = Input.GetAxisRaw("Horizontal");
                                      
-        rbBody.velocity = new Vector2(horizontalMove * speed, rbBody.velocity.y);        
+        ridgidBody2D.velocity = new Vector2(horizontalMove * speed, ridgidBody2D.velocity.y);        
 
 
         if (horizontalMove < 0 && facingRight)
@@ -56,7 +57,7 @@ public class PlayerScript : MonoBehaviour
             Flip();
         }
       
-        SetAnim();
+        SetAnimation();
     }
 
      void Update()
@@ -65,18 +66,18 @@ public class PlayerScript : MonoBehaviour
         {
             if (IsGrounded())
             {
-                anim.Play("jump");
-                rbBody.AddForce(Vector2.up * jump);
+                animator.Play("jump");
+                ridgidBody2D.AddForce(Vector2.up * jumpPower);
             }
         }
      }
 
-    public void SetAnim()
+     void SetAnimation()
     {
-        if (anim != null)
+        if (animator != null)
         {
-            anim.SetFloat("speedx", Mathf.Abs( rbBody.velocity.x));
-            anim.SetFloat("speedy", rbBody.velocity.y);
+            animator.SetFloat("speedx", Mathf.Abs( ridgidBody2D.velocity.x));
+            animator.SetFloat("speedy", ridgidBody2D.velocity.y);
 
         }
     }
