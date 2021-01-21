@@ -59,7 +59,7 @@ public class FollowerMovement : MonoBehaviour
                 }
             }
         }
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.R))
         {
             if (!attachedToBAP)
             {
