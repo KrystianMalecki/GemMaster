@@ -12,7 +12,6 @@ public class PlayerScript : MonoBehaviour
     [ConditionalField("showMoreData")] public bool facingRight = true;
    public float speed;
     [ConditionalField("showMoreData")] public BoxCollider2D groundCheckCol;
-    [ConditionalField("showMoreData")] public BoxCollider2D playerCol;
     [ConditionalField("showMoreData")] public Animator animator;
     [ConditionalField("showMoreData")] public Transform tvPoint;
 
@@ -24,20 +23,11 @@ public class PlayerScript : MonoBehaviour
         gameObject.transform.localScale = scale;
     }
 
-    bool IsGrounded() => groundCheckCol.IsTouchingLayers(platformLayerMask);
-   /* {
-       // RaycastHit2D rayCastHit = Physics2D.Raycast(col.bounds.center, Vector2.down, col.bounds.extents.y + 0.2f, platformLayerMask);
-       // return rayCastHit.collider != null;
-
-        if (groundCheckCol.IsTouchingLayers(platformLayerMask))
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
-    }*/
+    bool IsGrounded()
+    {
+        RaycastHit2D rayCastHit = Physics2D.BoxCast(groundCheckCol.bounds.center, groundCheckCol.bounds.size, 0f, Vector2.down, 0.2f, platformLayerMask);
+        return rayCastHit.collider != null;      
+     }
 
     void FixedUpdate()
     {          

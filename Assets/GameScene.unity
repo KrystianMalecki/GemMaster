@@ -303,7 +303,6 @@ MonoBehaviour:
   facingRight: 0
   speed: 10
   groundCheckCol: {fileID: 1590882930}
-  playerCol: {fileID: 526536479}
   animator: {fileID: 526536483}
   tvPoint: {fileID: 556898768}
 --- !u!61 &526536479
@@ -4712,9 +4711,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87398d081c736d94e8cf91ce5dc51a83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  showMoreData: 0
-  attached: {fileID: 0}
-  animator: {fileID: 0}
+  showMoreData: 1
+  attached: {fileID: 864239648}
+  animator: {fileID: 1574390668}
 --- !u!50 &1574390664
 Rigidbody2D:
   serializedVersion: 4
