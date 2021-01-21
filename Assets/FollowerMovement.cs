@@ -12,7 +12,7 @@ public class FollowerMovement : MonoBehaviour
     List<BlockAccesPoint> BAPsInRange = new List<BlockAccesPoint>();
     bool moveToBAP;
     public float moveSpeed;
-     bool attachedToBAP;
+    bool attachedToBAP;
     [ConditionalField("showMoreData")] public Transform img;
     Vector2 moveDir => targetPosition - new Vector2(transform.position.x, transform.position.y);
     float targetDistSqr => moveDir.sqrMagnitude;
@@ -117,6 +117,7 @@ public class FollowerMovement : MonoBehaviour
     }
     void OnTriggerEnter2D(Collider2D collision)
     {
+
         if (collision.CompareTag("BAP"))
         {
             BAPsInRange.Add(collision.GetComponent<BlockAccesPoint>());
