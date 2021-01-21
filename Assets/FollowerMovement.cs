@@ -1,7 +1,6 @@
-﻿using System.Collections;
+﻿using DG.Tweening;
 using System.Collections.Generic;
 using UnityEngine;
-
 public class FollowerMovement : MonoBehaviour
 {
     public PlayerScript playerScirpt;
@@ -10,7 +9,8 @@ public class FollowerMovement : MonoBehaviour
     public bool moveToBAP;
     public float moveSpeed;
     public bool attachedToBAP;
-    public Vector2 moveDir => targetPosition -new Vector2( transform.position.x, transform.position.y);
+    public Transform img;
+    public Vector2 moveDir => targetPosition - new Vector2(transform.position.x, transform.position.y);
     public float targetDistSqr => moveDir.sqrMagnitude;
 
     public Vector2 targetPosition
@@ -28,14 +28,28 @@ public class FollowerMovement : MonoBehaviour
             }
         }
     }
-    public void Update()
+    void Start()
+    {
+        Bop();
+    }
+    void Bop()
+    {
+        img.transform.DOLocalMoveY(0.2f, 1f).OnComplete(Bap);
+    }
+    void Bap()
+    {
+        img.transform.DOLocalMoveY(-0.2f, 1f).OnComplete(Bop);
+
+
+    }
+    void Update()
     {
         if (!attachedToBAP)
         {
             if (targetDistSqr > 0.2f)
             {
                 transform.Translate(moveDir.normalized * moveSpeed);
-                transform.localScale = new Vector3(playerScirpt.facingRight ? -2 : 2, 2, 2);
+                transform.localScale = new Vector3(playerScirpt.facingRight ? -1 : 1, 1, 1);
             }
             if (moveToBAP)
             {
@@ -49,8 +63,14 @@ public class FollowerMovement : MonoBehaviour
         {
             if (!attachedToBAP)
             {
-                targetPoint = GetClosestBAP();
-                moveToBAP = true;
+                 
+                    BlockAccesPoint bap= GetClosestBAP();
+                if (bap != null)
+                {
+
+                    targetPoint = bap;
+                    moveToBAP = true;
+                }
             }
             else
             {
@@ -58,17 +78,21 @@ public class FollowerMovement : MonoBehaviour
                 moveToBAP = false;
             }
         }
-       
+
     }
 
-    public BlockAccesPoint GetClosestBAP()
+    BlockAccesPoint GetClosestBAP()
     {
+        if (BAPsInRange.Count == 0)
+        {
+            return null;
+        }
         float currDist = 10000f;
         int currId = 0;
         for (int i = 0; i < BAPsInRange.Count; i++)
         {
             float dist = (BAPsInRange[i].transform.position - transform.position).sqrMagnitude;
-            if (currDist>=dist)
+            if (currDist >= dist)
             {
                 currDist = dist;
                 currId = i;
@@ -76,11 +100,20 @@ public class FollowerMovement : MonoBehaviour
         }
         return BAPsInRange[currId];
     }
-    
-    public void OnTriggerEnter2D(Collider2D collision)
+
+    void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("BAP")) {
+        if (collision.CompareTag("BAP"))
+        {
             BAPsInRange.Add(collision.GetComponent<BlockAccesPoint>());
+        }
+
+    }
+    void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("BAP"))
+        {
+            BAPsInRange.Remove(collision.GetComponent<BlockAccesPoint>());
         }
 
     }
