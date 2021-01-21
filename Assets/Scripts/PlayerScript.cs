@@ -13,6 +13,8 @@ public class PlayerScript : MonoBehaviour
     public BoxCollider2D groundCheckCol;
     public BoxCollider2D playerCol;
     public Animator anim;
+    public Transform lightPoint;
+
     void Flip()
     {
         facingRight = !facingRight;
