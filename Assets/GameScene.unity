@@ -4712,7 +4712,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   showMoreData: 1
-  attached: {fileID: 0}
+  attached: {fileID: 864239648}
   animator: {fileID: 1574390668}
 --- !u!50 &1574390664
 Rigidbody2D:
