@@ -1,29 +1,45 @@
-﻿using DG.Tweening;
+﻿using ConditionalAttribute;
+using DG.Tweening;
 using System.Collections.Generic;
 using UnityEngine;
 public class FollowerMovement : MonoBehaviour
 {
-    public PlayerScript playerScirpt;
-    public BlockAccesPoint targetPoint;
-    public List<BlockAccesPoint> BAPsInRange = new List<BlockAccesPoint>();
-    public bool moveToBAP;
-    public float moveSpeed;
-    public bool attachedToBAP;
-    public Transform img;
-    public Vector2 moveDir => targetPosition - new Vector2(transform.position.x, transform.position.y);
-    public float targetDistSqr => moveDir.sqrMagnitude;
+    [SerializeField]
+    private bool showMoreData;
 
-    public Vector2 targetPosition
+    [ConditionalField("showMoreData")] public PlayerScript playerScirpt;
+    [ConditionalField("showMoreData")] public BlockAccesPoint targetBAP;
+    List<BlockAccesPoint> BAPsInRange = new List<BlockAccesPoint>();
+    bool moveToBAP;
+    public float moveSpeed;
+     bool attachedToBAP;
+    [ConditionalField("showMoreData")] public Transform img;
+    Vector2 moveDir => targetPosition - new Vector2(transform.position.x, transform.position.y);
+    float targetDistSqr => moveDir.sqrMagnitude;
+
+    public void Attach()
+    {
+        attachedToBAP = true;
+        img.gameObject.SetActive(false);
+    }
+    public void Deattach()
+    {
+        img.gameObject.SetActive(true);
+        attachedToBAP = false;
+
+    }
+
+    Vector2 targetPosition
     {
         get
         {
             if (moveToBAP)
             {
-                return targetPoint.transform.position;
+                return targetBAP.transform.position;
             }
             else
             {
-                return playerScirpt.lightPoint.position;
+                return playerScirpt.tvPoint.position;
 
             }
         }
@@ -55,7 +71,7 @@ public class FollowerMovement : MonoBehaviour
             {
                 if (targetDistSqr < 0.2f)
                 {
-                    targetPoint.Attach(this);
+                    targetBAP.Attach(this);
                 }
             }
         }
@@ -63,24 +79,23 @@ public class FollowerMovement : MonoBehaviour
         {
             if (!attachedToBAP)
             {
-                 
-                    BlockAccesPoint bap= GetClosestBAP();
+
+                BlockAccesPoint bap = GetClosestBAP();
                 if (bap != null)
                 {
 
-                    targetPoint = bap;
+                    targetBAP = bap;
                     moveToBAP = true;
                 }
             }
             else
             {
-                targetPoint.Deattach();
+                targetBAP.Deattach();
                 moveToBAP = false;
             }
         }
 
     }
-
     BlockAccesPoint GetClosestBAP()
     {
         if (BAPsInRange.Count == 0)
@@ -100,7 +115,6 @@ public class FollowerMovement : MonoBehaviour
         }
         return BAPsInRange[currId];
     }
-
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("BAP"))
