@@ -10,7 +10,7 @@ public class PlayerScript : MonoBehaviour
     public float jumpPower;
     private float horizontalMove;
     [ConditionalField("showMoreData")] public bool facingRight = true;
-    [ConditionalField("showMoreData")] public float speed;
+   public float speed;
     [ConditionalField("showMoreData")] public BoxCollider2D groundCheckCol;
     [ConditionalField("showMoreData")] public BoxCollider2D playerCol;
     [ConditionalField("showMoreData")] public Animator animator;
