@@ -61,7 +61,7 @@ public class PlayerScript : MonoBehaviour
         if (anim != null)
         {
             anim.SetFloat("speedx", Mathf.Abs( rbBody.velocity.x));
-            anim.SetFloat("speedy", Mathf.Abs(rbBody.velocity.y));
+            anim.SetFloat("speedy", rbBody.velocity.y);
 
         }
     }
