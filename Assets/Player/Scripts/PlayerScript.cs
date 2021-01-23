@@ -28,6 +28,8 @@ public class PlayerScript : MonoBehaviour, IDamageable
     {
         //For now, max hp at start
         currentHP = maxHP;
+        HeartDisplay.instance.UpdateHP(currentHP, maxHP);
+
     }
     void Flip()
     {
