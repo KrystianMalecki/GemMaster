@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BackgroundParalax : MonoBehaviour
+public interface IDamageable 
 {
-    //Add Backgound Paralax  logic
+     void TakeDamage(int number,Vector2 dir);
 }

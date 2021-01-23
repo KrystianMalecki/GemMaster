@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BackgroundParalax : MonoBehaviour
+public class WireConnector : MonoBehaviour
 {
-    //Add Backgound Paralax  logic
+   //Add Wire connector logic
 }

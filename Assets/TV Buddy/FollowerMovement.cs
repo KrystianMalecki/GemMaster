@@ -16,7 +16,7 @@ public class FollowerMovement : MonoBehaviour
     [ConditionalField("showMoreData")] public Transform img;
     Vector2 moveDir => targetPosition - new Vector2(transform.position.x, transform.position.y);
     float targetDistSqr => moveDir.sqrMagnitude;
-
+    public float speeder;
     public void Attach()
     {
         attachedToBAP = true;
