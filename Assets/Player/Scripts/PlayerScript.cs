@@ -1,10 +1,9 @@
-﻿using ConditionalAttribute;
-using UnityEngine;
-using CodeHelper;
-using System.Collections.Generic;
+﻿using CodeHelper;
+using ConditionalAttribute;
 using System.Collections;
+using UnityEngine;
 
-public class PlayerScript : MonoBehaviour, IDamageable
+public class PlayerScript : Entity, IDamageable
 {
     [SerializeField]
     private bool showMoreData;
@@ -20,14 +19,12 @@ public class PlayerScript : MonoBehaviour, IDamageable
     [ConditionalField("showMoreData")] public Transform tvPoint;
     [ConditionalField("showMoreData")] public BoxCollider2D playerCollider;
 
-    public int maxHP;
-    public int currentHP;
+
     public float knockback;
 
-    public void Start()
+    public override void Start()
     {
-        //For now, max hp at start
-        currentHP = maxHP;
+        base.Start();
         HeartDisplay.instance.UpdateHP(currentHP, maxHP);
 
     }
@@ -88,27 +85,51 @@ public class PlayerScript : MonoBehaviour, IDamageable
         }
     }
 
-    public void TakeDamage(int number,Vector2 dir)
+    public void TakeDamage(int number, Vector2 dir)
     {
-        currentHP -= number;
+        AddHP(-number);
         StartCoroutine("inmunityFrames");
         ridgidBody2D.AddForce((transform.position.toVector2() - dir).normalized * knockback, ForceMode2D.Impulse);
         /*make better knockback function
         maybe clamp dirtection to only 1 or -1 and then multiply by knockback force and little bit up?
          */
-     
+
         if (currentHP <= 0)
         {
             Debug.Log("Player died.");
             return;
         }
-        HeartDisplay.instance.UpdateHP(currentHP, maxHP);
     }
     IEnumerable inmunityFrames()
     {
         playerCollider.enabled = false;
         yield return new WaitForSeconds(0.5f);
         playerCollider.enabled = true;
+
+    }
+   
+    public void OnTriggerEnter2D(Collider2D collision)
+    {
+        Debug.Log(1 + collision.name + " " + collision.name);
+        if (collision.isTrigger)
+        {
+            Debug.Log(2);
+
+            //  if (collision.otherCollider.CompareTag("Pickup")){ //idk if all pickup objects will have ONLY Pickup tag. Maybe add later
+            PickupObject po = collision.GetComponent<PickupObject>();
+            if (po != null)
+            {
+                Debug.Log(4);
+
+                po.Pickup(this);
+            }
+            //}
+        }
+    }
+    public override void AddHP(int number)
+    {
+        base.AddHP(number);
+        HeartDisplay.instance.UpdateHP(currentHP, maxHP);
 
     }
 }
