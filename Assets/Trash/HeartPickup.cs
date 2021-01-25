@@ -1,4 +1,5 @@
 ﻿using DG.Tweening;
+using UnityEngine;
 
 public class HeartPickup : PickupObject
 {
@@ -21,4 +22,5 @@ public class HeartPickup : PickupObject
     {
         transform.DOLocalMoveY(transform.position.y - 0.2f, 2f).OnComplete(up);
     }
+   
 }

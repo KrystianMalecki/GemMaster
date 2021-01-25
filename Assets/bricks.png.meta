@@ -1,31 +1,13 @@
 fileFormatVersion: 2
-guid: e559a967bbc7fb042b70f6ae0672a874
+guid: 986d9608bdc5cae408358c0da8143134
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1564688358316481467
-    second: hearts_0
+      213: 5832171855535021699
+    second: bricks_0
   - first:
-      213: 5726080727020278575
-    second: hearts_1
-  - first:
-      213: 8522625820373494394
-    second: hearts_2
-  - first:
-      213: -8812224536284648486
-    second: hearts_0
-  - first:
-      213: -6134215610441978263
-    second: hearts_1
-  - first:
-      213: -5891010769161133929
-    second: hearts_2
-  - first:
-      213: 7885684081779559860
-    second: hearts_3
-  - first:
-      213: 4537193172801868870
-    second: hearts_4
+      213: -448948775454354536
+    second: bricks_1
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -125,43 +107,43 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: hearts_0
+      name: bricks_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
-        width: 16
+        y: 16
+        width: 22
         height: 16
-      alignment: 9
-      pivot: {x: 0.47, y: 0.5}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: adba5c13970b4b580800000000000000
-      internalID: -8812224536284648486
+      spriteID: 38e1236076900f050800000000000000
+      internalID: 5832171855535021699
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: hearts_1
+      name: bricks_1
       rect:
         serializedVersion: 2
-        x: 16
+        x: 0
         y: 0
-        width: 16
+        width: 22
         height: 16
-      alignment: 9
-      pivot: {x: 0.47, y: 0.5}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 96e23fb1763eedaa0800000000000000
-      internalID: -6134215610441978263
+      spriteID: 89352b4a77305c9f0800000000000000
+      internalID: -448948775454354536
       vertices: []
       indices: 
       edges: []
