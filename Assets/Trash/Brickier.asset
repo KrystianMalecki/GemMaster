@@ -9,16 +9,99 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9d1514134bc4fbd41bb739b1b9a49231, type: 3}
-  m_Name: Bricker
+  m_Script: {fileID: 11500000, guid: 9ff2caf20a1df406d9ab8f2f5a57f734, type: 3}
+  m_Name: Brickier
   m_EditorClassIdentifier: 
-  m_DefaultSprite: {fileID: 1370579504103910233, guid: 7c7031473578ef741afa369a1a912edf, type: 3}
+  m_Tile: {fileID: 11400000, guid: 546542ca55ad56f4c94886a6ad67b137, type: 2}
+  m_Sprites: []
+  m_GameObjects: []
+  m_InstanceTile: {fileID: 8922601879972204152}
+  m_DefaultSprite: {fileID: 0}
+  m_DefaultGameObject: {fileID: 0}
+  m_DefaultColliderType: 1
+  m_OverrideTilingRules:
+  - m_Id: 0
+    m_Sprites:
+    - {fileID: 2470148976421468905, guid: 7c7031473578ef741afa369a1a912edf, type: 3}
+    m_GameObject: {fileID: 0}
+    m_AnimationSpeed: 1
+    m_PerlinScale: 0.5
+    m_Output: 0
+    m_ColliderType: 1
+    m_RandomTransform: 0
+  - m_Id: 1
+    m_Sprites:
+    - {fileID: -5204263582508840126, guid: 7c7031473578ef741afa369a1a912edf, type: 3}
+    m_GameObject: {fileID: 0}
+    m_AnimationSpeed: 1
+    m_PerlinScale: 0.5
+    m_Output: 0
+    m_ColliderType: 1
+    m_RandomTransform: 0
+  - m_Id: 2
+    m_Sprites:
+    - {fileID: 1216468817654498687, guid: 7c7031473578ef741afa369a1a912edf, type: 3}
+    m_GameObject: {fileID: 0}
+    m_AnimationSpeed: 1
+    m_PerlinScale: 0.5
+    m_Output: 0
+    m_ColliderType: 1
+    m_RandomTransform: 0
+  - m_Id: 7
+    m_Sprites:
+    - {fileID: -3407021107246902461, guid: 7c7031473578ef741afa369a1a912edf, type: 3}
+    m_GameObject: {fileID: 0}
+    m_AnimationSpeed: 1
+    m_PerlinScale: 0.5
+    m_Output: 0
+    m_ColliderType: 1
+    m_RandomTransform: 0
+  - m_Id: 12
+    m_Sprites:
+    - {fileID: 2393028578740014212, guid: 7c7031473578ef741afa369a1a912edf, type: 3}
+    m_GameObject: {fileID: 0}
+    m_AnimationSpeed: 1
+    m_PerlinScale: 0.5
+    m_Output: 0
+    m_ColliderType: 1
+    m_RandomTransform: 0
+  - m_Id: 13
+    m_Sprites:
+    - {fileID: -8770280823010164866, guid: 7c7031473578ef741afa369a1a912edf, type: 3}
+    m_GameObject: {fileID: 0}
+    m_AnimationSpeed: 1
+    m_PerlinScale: 0.5
+    m_Output: 0
+    m_ColliderType: 1
+    m_RandomTransform: 0
+  - m_Id: 14
+    m_Sprites:
+    - {fileID: 6642401858443770150, guid: 7c7031473578ef741afa369a1a912edf, type: 3}
+    m_GameObject: {fileID: 0}
+    m_AnimationSpeed: 1
+    m_PerlinScale: 0.5
+    m_Output: 0
+    m_ColliderType: 1
+    m_RandomTransform: 0
+--- !u!114 &8922601879972204152
+MonoBehaviour:
+  m_ObjectHideFlags: 8
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d1514134bc4fbd41bb739b1b9a49231, type: 3}
+  m_Name: Bricker (Override)
+  m_EditorClassIdentifier: 
+  m_DefaultSprite: {fileID: 0}
   m_DefaultGameObject: {fileID: 0}
   m_DefaultColliderType: 1
   m_TilingRules:
   - m_Id: 0
     m_Sprites:
-    - {fileID: -8038268213011163490, guid: 7c7031473578ef741afa369a1a912edf, type: 3}
+    - {fileID: 2470148976421468905, guid: 7c7031473578ef741afa369a1a912edf, type: 3}
     m_GameObject: {fileID: 0}
     m_AnimationSpeed: 1
     m_PerlinScale: 0.5
@@ -34,7 +117,7 @@ MonoBehaviour:
     m_RuleTransform: 0
   - m_Id: 1
     m_Sprites:
-    - {fileID: 4092265423131152365, guid: 7c7031473578ef741afa369a1a912edf, type: 3}
+    - {fileID: -5204263582508840126, guid: 7c7031473578ef741afa369a1a912edf, type: 3}
     m_GameObject: {fileID: 0}
     m_AnimationSpeed: 1
     m_PerlinScale: 0.5
@@ -50,7 +133,7 @@ MonoBehaviour:
     m_RuleTransform: 0
   - m_Id: 2
     m_Sprites:
-    - {fileID: -3421397275428600629, guid: 7c7031473578ef741afa369a1a912edf, type: 3}
+    - {fileID: 1216468817654498687, guid: 7c7031473578ef741afa369a1a912edf, type: 3}
     m_GameObject: {fileID: 0}
     m_AnimationSpeed: 1
     m_PerlinScale: 0.5
@@ -130,7 +213,7 @@ MonoBehaviour:
     m_RuleTransform: 0
   - m_Id: 7
     m_Sprites:
-    - {fileID: -6793284718950854241, guid: 7c7031473578ef741afa369a1a912edf, type: 3}
+    - {fileID: -3407021107246902461, guid: 7c7031473578ef741afa369a1a912edf, type: 3}
     m_GameObject: {fileID: 0}
     m_AnimationSpeed: 1
     m_PerlinScale: 0.5
@@ -210,7 +293,7 @@ MonoBehaviour:
     m_RuleTransform: 0
   - m_Id: 12
     m_Sprites:
-    - {fileID: 2964385064704809944, guid: 7c7031473578ef741afa369a1a912edf, type: 3}
+    - {fileID: 2393028578740014212, guid: 7c7031473578ef741afa369a1a912edf, type: 3}
     m_GameObject: {fileID: 0}
     m_AnimationSpeed: 1
     m_PerlinScale: 0.5
@@ -226,7 +309,7 @@ MonoBehaviour:
     m_RuleTransform: 0
   - m_Id: 13
     m_Sprites:
-    - {fileID: -2303086967940471257, guid: 7c7031473578ef741afa369a1a912edf, type: 3}
+    - {fileID: -8770280823010164866, guid: 7c7031473578ef741afa369a1a912edf, type: 3}
     m_GameObject: {fileID: 0}
     m_AnimationSpeed: 1
     m_PerlinScale: 0.5
@@ -242,7 +325,7 @@ MonoBehaviour:
     m_RuleTransform: 0
   - m_Id: 14
     m_Sprites:
-    - {fileID: 6102965771096490710, guid: 7c7031473578ef741afa369a1a912edf, type: 3}
+    - {fileID: 6642401858443770150, guid: 7c7031473578ef741afa369a1a912edf, type: 3}
     m_GameObject: {fileID: 0}
     m_AnimationSpeed: 1
     m_PerlinScale: 0.5
