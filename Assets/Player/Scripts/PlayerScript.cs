@@ -1,5 +1,6 @@
 ﻿using CodeHelper;
-using ConditionalAttribute;
+
+using NaughtyAttributes;
 using System.Collections;
 using UnityEngine;
 
@@ -7,17 +8,17 @@ public class PlayerScript : Entity, IDamageable
 {
     [SerializeField]
     private bool showMoreData;
-    [ConditionalField("showMoreData")] public LayerMask platformLayerMask;
+    [Foldout("Static Data")] public LayerMask platformLayerMask;
 
-    [ConditionalField("showMoreData")] public Rigidbody2D ridgidBody2D;
+    [Foldout("Static Data")] public Rigidbody2D ridgidBody2D;
     public float jumpPower;
     private float horizontalMove;
-    [ConditionalField("showMoreData")] public bool facingRight = true;
+    [Foldout("Static Data")] public bool facingRight = true;
     public float speed;
-    [ConditionalField("showMoreData")] public BoxCollider2D groundCheckCol;
-    [ConditionalField("showMoreData")] public Animator animator;
-    [ConditionalField("showMoreData")] public Transform tvPoint;
-    [ConditionalField("showMoreData")] public BoxCollider2D playerCollider;
+    [Foldout("Static Data")] public BoxCollider2D groundCheckCol;
+    [Foldout("Static Data")] public Animator animator;
+    [Foldout("Static Data")] public Transform tvPoint;
+    [Foldout("Static Data")] public BoxCollider2D playerCollider;
 
 
     public float knockback;

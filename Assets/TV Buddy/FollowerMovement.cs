@@ -1,4 +1,4 @@
-﻿using ConditionalAttribute;
+﻿using NaughtyAttributes;
 using DG.Tweening;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,13 +7,13 @@ public class FollowerMovement : MonoBehaviour
     [SerializeField]
     private bool showMoreData;
 
-    [ConditionalField("showMoreData")] public PlayerScript playerScirpt;
-    [ConditionalField("showMoreData")] public BlockAccesPoint targetBAP;
+    [Foldout("Static Data")] public PlayerScript playerScirpt;
+    [Foldout("Static Data")] public BlockAccesPoint targetBAP;
     List<BlockAccesPoint> BAPsInRange = new List<BlockAccesPoint>();
     bool moveToBAP;
     public float moveSpeed;
     bool attachedToBAP;
-    [ConditionalField("showMoreData")] public Transform img;
+    [Foldout("Static Data")] public Transform img;
     Vector2 moveDir => targetPosition - new Vector2(transform.position.x, transform.position.y);
     float targetDistSqr => moveDir.sqrMagnitude;
     public float speeder;

@@ -1,14 +1,13 @@
-﻿using ConditionalAttribute;
+﻿using NaughtyAttributes;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 
 public class BlockAccesPoint : MonoBehaviour
 {
-    [SerializeField]
-    private bool showMoreData;
-    [ConditionalField("showMoreData")] public FollowerMovement attached;
-    [ConditionalField("showMoreData")] public Animator animator;
+
+    [Foldout("Static Data")] public FollowerMovement attached;
+    [Foldout("Static Data")] public Animator animator;
     public UnityEvent OnAttach;
     public UnityEvent OnDeattach;
     public UnityEvent OnExecute;
