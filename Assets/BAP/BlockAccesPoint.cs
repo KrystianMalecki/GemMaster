@@ -16,10 +16,18 @@ public class BlockAccesPoint : MonoBehaviour
     {
         attached = fm;
         attached.Attach();
-     //   animator.Play("Attach");
         animator.Play("Attach new");
+        StartCoroutine(attach());
+    }
+    IEnumerator attach()
+    {
+//        animator.Play("Deattach new");
 
+        yield return new WaitForSeconds(40f / 60f);
+        Destroy(Instantiate(GameManager.instance.pareticles, transform.position, Quaternion.identity), 2f);
         OnAttach.Invoke();
+
+
     }
     public void Execute()
     {
@@ -31,15 +39,22 @@ public class BlockAccesPoint : MonoBehaviour
         StartCoroutine(deattach());
         OnDeattach.Invoke();
     }
+    public void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            Execute();
+        }
+    }
     IEnumerator deattach()
     {
-     //   animator.Play("Deattach");
-            animator.Play("Deattach new");
+        //   animator.Play("Deattach");
+        animator.Play("Deattach new");
 
         //   yield return new WaitForSeconds(50f / 60f);
-           yield return new WaitForSeconds(60f / 60f);
+        yield return new WaitForSeconds(60f / 60f);
 
-        attached.Deattach(); 
+        attached.Deattach();
         attached = null;
 
     }

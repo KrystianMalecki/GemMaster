@@ -111,10 +111,9 @@ public class PlayerScript : Entity, IDamageable
    
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log(1 + collision.name + " " + collision.name);
+
         if (collision.isTrigger)
         {
-            Debug.Log(2);
 
             //  if (collision.otherCollider.CompareTag("Pickup")){ //idk if all pickup objects will have ONLY Pickup tag. Maybe add later
             PickupObject po = collision.GetComponent<PickupObject>();

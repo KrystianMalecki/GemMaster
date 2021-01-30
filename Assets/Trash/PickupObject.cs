@@ -1,12 +1,11 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PickupObject : MonoBehaviour
 {
-   public virtual void Pickup(Entity entity)
+    public virtual void Pickup(Entity entity)
     {
+        DG.Tweening.DOTween.Kill(this, false);
         Destroy(gameObject);
     }
-  
+
 }
