@@ -4,6 +4,7 @@ using UnityEngine;
 public class SpikesTile : DamageDealer
 {
     public Transform spikes;
+    //make better animation
     public void Activate()
     {
         spikes.DOLocalMoveY(0, 0.3f).SetEase(Ease.OutCubic);
