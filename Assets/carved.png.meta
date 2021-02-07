@@ -38,6 +38,30 @@ TextureImporter:
   - first:
       213: -5089884969540582759
     second: carved_7
+  - first:
+      213: 6379531977416196791
+    second: carved_4
+  - first:
+      213: -1817680756928409501
+    second: carved_5
+  - first:
+      213: 7625171620844969770
+    second: carved_6
+  - first:
+      213: 6365789898820519027
+    second: carved_7
+  - first:
+      213: -6900861793536971646
+    second: carved_8
+  - first:
+      213: 3382961878370968954
+    second: carved_9
+  - first:
+      213: -2465266630980500183
+    second: carved_10
+  - first:
+      213: 7164251786845374832
+    second: carved_11
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -141,7 +165,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 48
+        y: 80
         width: 16
         height: 16
       alignment: 0
@@ -162,7 +186,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 16
-        y: 48
+        y: 80
         width: 16
         height: 16
       alignment: 0
@@ -183,7 +207,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 32
-        y: 48
+        y: 80
         width: 16
         height: 16
       alignment: 0
@@ -204,7 +228,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 32
+        y: 64
         width: 16
         height: 16
       alignment: 0
@@ -225,6 +249,90 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
+        y: 48
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b243238886a88850800000000000000
+      internalID: 6379531977416196791
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: carved_5
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 48
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 36018386bfc46c6e0800000000000000
+      internalID: -1817680756928409501
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: carved_6
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 48
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a2f9ad3703d02d960800000000000000
+      internalID: 7625171620844969770
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: carved_7
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 37487f18f24d75850800000000000000
+      internalID: 6365789898820519027
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: carved_8
+      rect:
+        serializedVersion: 2
+        x: 0
         y: 16
         width: 16
         height: 16
@@ -235,14 +343,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 149398f7538db0870800000000000000
-      internalID: 8650245233579735361
+      spriteID: 28ce928d2c63b30a0800000000000000
+      internalID: -6900861793536971646
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: carved_5
+      name: carved_9
       rect:
         serializedVersion: 2
         x: 16
@@ -256,14 +364,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: da87683cbfbe38350800000000000000
-      internalID: 6017912993646803117
+      spriteID: a756df897e1b2fe20800000000000000
+      internalID: 3382961878370968954
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: carved_6
+      name: carved_10
       rect:
         serializedVersion: 2
         x: 32
@@ -277,14 +385,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: df0ec44cb0105b0d0800000000000000
-      internalID: -3407816392986271491
+      spriteID: 92588c78f0d99cdd0800000000000000
+      internalID: -2465266630980500183
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: carved_7
+      name: carved_11
       rect:
         serializedVersion: 2
         x: 0
@@ -298,8 +406,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9920fea66981d59b0800000000000000
-      internalID: -5089884969540582759
+      spriteID: 0794064da098c6360800000000000000
+      internalID: 7164251786845374832
       vertices: []
       indices: 
       edges: []

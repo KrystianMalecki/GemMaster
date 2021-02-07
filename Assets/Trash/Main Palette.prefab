@@ -41,6 +41,15 @@ Tilemap:
   m_GameObject: {fileID: 3174851837122967409}
   m_Enabled: 1
   m_Tiles:
+  - first: {x: -8, y: 0, z: 0}
+    second:
+      serializedVersion: 2
+      m_TileIndex: 9
+      m_TileSpriteIndex: 9
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 0
+      m_TileObjectToInstantiateIndex: 65535
+      m_AllTileFlags: 1073741826
   - first: {x: -7, y: 0, z: 0}
     second:
       serializedVersion: 2
@@ -153,6 +162,8 @@ Tilemap:
     m_Data: {fileID: 11400000, guid: 713d777bbb615bf4e80497430b34f334, type: 2}
   - m_RefCount: 1
     m_Data: {fileID: 11400000, guid: 7eca367c7bd839746837ccc538147e01, type: 2}
+  - m_RefCount: 1
+    m_Data: {fileID: 11400000, guid: 1e56de003b96ada48a97814e4320df16, type: 2}
   m_TileSpriteArray:
   - m_RefCount: 1
     m_Data: {fileID: 21300000, guid: 9a6174d632635304796dc5c2816d581c, type: 3}
@@ -172,8 +183,10 @@ Tilemap:
     m_Data: {fileID: -9140269926992132750, guid: f88aabe1a029ad94c88621d3b0ab384d, type: 3}
   - m_RefCount: 1
     m_Data: {fileID: -1462630818572580478, guid: beefd81767c33fb4da197025c5e6f509, type: 3}
+  - m_RefCount: 1
+    m_Data: {fileID: 7164251786845374832, guid: 07a3c21bc31805b4e9c286b37f5bb3fe, type: 3}
   m_TileMatrixArray:
-  - m_RefCount: 9
+  - m_RefCount: 10
     m_Data:
       e00: 1
       e01: 0
@@ -192,7 +205,7 @@ Tilemap:
       e32: 0
       e33: 1
   m_TileColorArray:
-  - m_RefCount: 9
+  - m_RefCount: 10
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   - m_RefCount: 0
     m_Data: {r: -1.4858334e-27, g: -1.4858334e-27, b: -1.4858334e-27, a: -1.4858334e-27}
@@ -209,8 +222,8 @@ Tilemap:
     m_Data: {fileID: 6009973585921375908, guid: 50c4b59cf053d004183e83a8213ed79d, type: 3}
   m_AnimationFrameRate: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Origin: {x: -7, y: 0, z: 0}
-  m_Size: {x: 7, y: 2, z: 1}
+  m_Origin: {x: -8, y: 0, z: 0}
+  m_Size: {x: 8, y: 2, z: 1}
   m_TileAnchor: {x: 0.5, y: 0.5, z: 0}
   m_TileOrientation: 0
   m_TileOrientationMatrix:
@@ -271,7 +284,7 @@ TilemapRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
-  m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
+  m_ChunkCullingBounds: {x: 0, y: 1, z: 0}
   m_MaxChunkCount: 16
   m_MaxFrameAge: 16
   m_SortOrder: 0
@@ -322,7 +335,7 @@ Grid:
   m_CellGap: {x: 0, y: 0, z: 0}
   m_CellLayout: 0
   m_CellSwizzle: 0
---- !u!114 &2925608101792519382
+--- !u!114 &3019920516842222678
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
