@@ -34,7 +34,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9d1514134bc4fbd41bb739b1b9a49231, type: 3}
-  m_Name: carved (Override)
+  m_Name: carved loopy
   m_EditorClassIdentifier: 
   m_DefaultSprite: {fileID: 8650245233579735361, guid: 07a3c21bc31805b4e9c286b37f5bb3fe, type: 3}
   m_DefaultGameObject: {fileID: 0}

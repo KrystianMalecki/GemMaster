@@ -1,7 +1,7 @@
-﻿using CodeHelper;
+﻿using System.Collections;
+using CodeHelper;
 
 using NaughtyAttributes;
-using System.Collections;
 using UnityEngine;
 
 public class PlayerScript : Entity, IDamageable
