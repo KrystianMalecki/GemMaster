@@ -86,21 +86,18 @@ public class PlayerScript : Entity, IDamageable
         }
     }
 
-    public void TakeDamage(int number, Vector2 dir)
+    public override void TakeDamage(int number, Vector2 dir)
     {
-        AddHP(-number);
+        base.TakeDamage(number, dir);
         StartCoroutine("inmunityFrames");
         ridgidBody2D.AddForce((transform.position.toVector2() - dir).normalized * knockback, ForceMode2D.Impulse);
         /*make better knockback function
         maybe clamp dirtection to only 1 or -1 and then multiply by knockback force and little bit up?
          */
+       
 
-        if (currentHP <= 0)
-        {
-            Debug.Log("Player died.");
-            return;
-        }
     }
+
     IEnumerable inmunityFrames()
     {
         playerCollider.enabled = false;
@@ -119,7 +116,6 @@ public class PlayerScript : Entity, IDamageable
             PickupObject po = collision.GetComponent<PickupObject>();
             if (po != null)
             {
-                Debug.Log(4);
 
                 po.Pickup(this);
             }
@@ -131,5 +127,10 @@ public class PlayerScript : Entity, IDamageable
         base.AddHP(number);
         HeartDisplay.instance.UpdateHP(currentHP, maxHP);
 
+    }
+    public override void Die()
+    {
+        base.Die();
+        Debug.Log("Player died.");
     }
 }

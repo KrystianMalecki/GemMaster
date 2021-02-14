@@ -73,14 +73,24 @@ public class ShadowCaster2DGenerator
     /// <param name="collider">The collider which will be the parent of the new shadow casters.</param>
     public static void GenerateTilemapShadowCasters(CompositeCollider2D collider)
     {
+        GameObject shadowParent = null;
         // First, it destroys the existing shadow casters
-        ShadowCaster2D[] existingShadowCasters = collider.GetComponentsInChildren<ShadowCaster2D>();
-
-        for (int i = 0; i < existingShadowCasters.Length; ++i)
+        if (collider.transform.childCount == 1)
         {
-            GameObject.DestroyImmediate(existingShadowCasters[i].gameObject);
-        }
+            ShadowCaster2D[] existingShadowCasters = collider.transform.GetChild(0).GetComponentsInChildren<ShadowCaster2D>();
 
+            for (int i = 0; i < existingShadowCasters.Length; ++i)
+            {
+                GameObject.DestroyImmediate(existingShadowCasters[i].gameObject);
+            }
+             shadowParent = collider.transform.GetChild(0).gameObject;
+        }
+        else
+        {
+         shadowParent = new GameObject("Shadows");
+        shadowParent.transform.SetParent(collider.transform, false);
+
+        }
         // Then it creates the new shadow casters, based on the paths of the composite collider
         int pathCount = collider.pathCount;
         List<Vector2> pointsInPath = new List<Vector2>();
@@ -92,7 +102,7 @@ public class ShadowCaster2DGenerator
 
             GameObject newShadowCaster = new GameObject("ShadowCaster2D");
             newShadowCaster.isStatic = true;
-            newShadowCaster.transform.SetParent(collider.transform, false);
+            newShadowCaster.transform.SetParent(shadowParent.transform, false);
 
             for (int j = 0; j < pointsInPath.Count; ++j)
             {
@@ -102,7 +112,7 @@ public class ShadowCaster2DGenerator
             ShadowCaster2D component = newShadowCaster.AddComponent<ShadowCaster2D>();
             component.SetPath(pointsInPath3D.ToArray());
             component.SetPathHash(Random.Range(int.MinValue, int.MaxValue)); // The hashing function GetShapePathHash could be copied from the LightUtility class
-
+            component.selfShadows = true;
             pointsInPath.Clear();
             pointsInPath3D.Clear();
         }

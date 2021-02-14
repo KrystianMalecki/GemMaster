@@ -31,7 +31,7 @@ SpriteAtlas:
     variantMultiplier: 1
     packables:
     - {fileID: 102900000, guid: 97f2a14ae8597194c8df74ff0c6d2b4c, type: 3}
-    totalSpriteSurfaceArea: 25600
+    totalSpriteSurfaceArea: 26112
     bindAsDefault: 1
     isAtlasV2: 0
     cachedData: {fileID: 0}
@@ -60,6 +60,7 @@ SpriteAtlas:
   - {fileID: 7509860518518112746, guid: b275ad1413eaa654593cfb7afc47c260, type: 3}
   - {fileID: 6717470441782034276, guid: b275ad1413eaa654593cfb7afc47c260, type: 3}
   - {fileID: 8954718260495684846, guid: b275ad1413eaa654593cfb7afc47c260, type: 3}
+  - {fileID: 21300000, guid: 9a6174d632635304796dc5c2816d581c, type: 3}
   - {fileID: -4660818893071079881, guid: beefd81767c33fb4da197025c5e6f509, type: 3}
   - {fileID: -8321099276026552923, guid: beefd81767c33fb4da197025c5e6f509, type: 3}
   - {fileID: 3293705428144980718, guid: beefd81767c33fb4da197025c5e6f509, type: 3}
@@ -146,6 +147,7 @@ SpriteAtlas:
   - torch_0
   - torch_1
   - torch_4
+  - grassed
   - super brick_8
   - super brick_9
   - super brick_2
