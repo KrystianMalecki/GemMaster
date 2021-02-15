@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4514436134629723226}
   - component: {fileID: 1980083442201706867}
   m_Layer: 0
-  m_Name: Point Light 2D
+  m_Name: Glow Plant Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -939,8 +939,8 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 0.3
-      minScalar: 0.01
+      scalar: 5
+      minScalar: 2
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -1049,7 +1049,7 @@ ParticleSystem:
       countCurve:
         serializedVersion: 2
         minMaxState: 0
-        scalar: 3
+        scalar: 10
         minScalar: 30
         maxCurve:
           serializedVersion: 2
@@ -1100,14 +1100,14 @@ ParticleSystem:
           m_PostInfinity: 2
           m_RotationOrder: 4
       cycleCount: 0
-      repeatInterval: 2
+      repeatInterval: 1
       probability: 0.1
     - serializedVersion: 2
       time: 0
       countCurve:
         serializedVersion: 2
         minMaxState: 0
-        scalar: 5
+        scalar: 15
         minScalar: 30
         maxCurve:
           serializedVersion: 2
@@ -1551,10 +1551,10 @@ ParticleSystem:
         m_NumAlphaKeys: 2
   UVModule:
     serializedVersion: 2
-    enabled: 0
-    mode: 0
-    timeMode: 0
-    fps: 30
+    enabled: 1
+    mode: 1
+    timeMode: 1
+    fps: 0.0001
     frameOverTime:
       serializedVersion: 2
       minMaxState: 1
@@ -1610,8 +1610,8 @@ ParticleSystem:
         m_RotationOrder: 4
     startFrame:
       serializedVersion: 2
-      minMaxState: 0
-      scalar: 0
+      minMaxState: 3
+      scalar: 0.9375
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -1661,16 +1661,31 @@ ParticleSystem:
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 4
-    speedRange: {x: 0, y: 1}
+    speedRange: {x: 0, y: 0}
     tilesX: 1
     tilesY: 1
     animationType: 0
     rowIndex: 0
-    cycles: 1
+    cycles: 0.0001
     uvChannelMask: -1
     rowMode: 1
     sprites:
-    - sprite: {fileID: 0}
+    - sprite: {fileID: -7609486996209228562, guid: 8337660b50b3eec4ba124f800a84da7e, type: 3}
+    - sprite: {fileID: -576354014268724891, guid: 8337660b50b3eec4ba124f800a84da7e, type: 3}
+    - sprite: {fileID: 5597564248131343736, guid: 8337660b50b3eec4ba124f800a84da7e, type: 3}
+    - sprite: {fileID: -449137561210389587, guid: 8337660b50b3eec4ba124f800a84da7e, type: 3}
+    - sprite: {fileID: -2924870240721974060, guid: 8337660b50b3eec4ba124f800a84da7e, type: 3}
+    - sprite: {fileID: 4816342424261837737, guid: 8337660b50b3eec4ba124f800a84da7e, type: 3}
+    - sprite: {fileID: 6193290335882477365, guid: 8337660b50b3eec4ba124f800a84da7e, type: 3}
+    - sprite: {fileID: -7872684065047532718, guid: 8337660b50b3eec4ba124f800a84da7e, type: 3}
+    - sprite: {fileID: -1874999468665147253, guid: 8337660b50b3eec4ba124f800a84da7e, type: 3}
+    - sprite: {fileID: -5004791727209759167, guid: 8337660b50b3eec4ba124f800a84da7e, type: 3}
+    - sprite: {fileID: 2771832032555197376, guid: 8337660b50b3eec4ba124f800a84da7e, type: 3}
+    - sprite: {fileID: 8980415328753738973, guid: 8337660b50b3eec4ba124f800a84da7e, type: 3}
+    - sprite: {fileID: 616466274194406914, guid: 8337660b50b3eec4ba124f800a84da7e, type: 3}
+    - sprite: {fileID: 2739380687204865531, guid: 8337660b50b3eec4ba124f800a84da7e, type: 3}
+    - sprite: {fileID: 151391851145879583, guid: 8337660b50b3eec4ba124f800a84da7e, type: 3}
+    - sprite: {fileID: -4489935065248578873, guid: 8337660b50b3eec4ba124f800a84da7e, type: 3}
     flipU: 0
     flipV: 0
   VelocityModule:
