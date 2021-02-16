@@ -2,6 +2,7 @@
 using DG.Tweening;
 using System.Collections.Generic;
 using UnityEngine;
+using CodeHelper;
 public class FollowerMovement : MonoBehaviour
 {
     [SerializeField]
@@ -14,9 +15,10 @@ public class FollowerMovement : MonoBehaviour
     public float moveSpeed;
     bool attachedToBAP;
     [Foldout("Static Data")] public Transform img;
-    Vector2 moveDir => targetPosition - new Vector2(transform.position.x, transform.position.y);
+    Vector2 moveDir => targetPosition - realPosition.ToVector2();// new Vector2(transform.position.x, transform.position.y);
     float targetDistSqr => moveDir.sqrMagnitude;
     public float speeder;
+    Vector3 realPosition;
     public void Attach()
     {
         attachedToBAP = true;
@@ -44,9 +46,13 @@ public class FollowerMovement : MonoBehaviour
             }
         }
     }
+    private void Awake()
+    {
+        realPosition = transform.localPosition;
+    }
     void Start()
     {
-        Bop();
+       // Bop();
     }
     void Bop()
     {
@@ -64,8 +70,12 @@ public class FollowerMovement : MonoBehaviour
         {
             if (targetDistSqr > 0.2f)
             {
-                transform.Translate(moveDir.normalized * moveSpeed);
+           
+               transform.Translate(moveDir.normalized * moveSpeed);
+                realPosition += moveDir.normalized.ToVector3() * moveSpeed;
+               // transform.localPosition = realPosition.AlignToPixel();
                 transform.localScale = new Vector3(playerScirpt.facingRight ? -1 : 1, 1, 1);
+               
             }
             if (moveToBAP)
             {
@@ -96,6 +106,7 @@ public class FollowerMovement : MonoBehaviour
         }
 
     }
+    
     BlockAccesPoint GetClosestBAP()
     {
         if (BAPsInRange.Count == 0)

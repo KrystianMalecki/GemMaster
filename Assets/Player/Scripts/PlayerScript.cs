@@ -90,7 +90,7 @@ public class PlayerScript : Entity, IDamageable
     {
         base.TakeDamage(number, dir);
         StartCoroutine("inmunityFrames");
-        ridgidBody2D.AddForce((transform.position.toVector2() - dir).normalized * knockback, ForceMode2D.Impulse);
+        ridgidBody2D.AddForce((transform.position.ToVector2() - dir).normalized * knockback, ForceMode2D.Impulse);
         /*make better knockback function
         maybe clamp dirtection to only 1 or -1 and then multiply by knockback force and little bit up?
          */
