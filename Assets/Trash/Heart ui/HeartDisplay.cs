@@ -4,19 +4,7 @@ using UnityEngine.UI;
 
 public class HeartDisplay : MonoBehaviour
 {
-    public static HeartDisplay instance;
-    public void Awake()
-    {
-        if (instance != null)
-        {
-            Destroy(gameObject);
-            return;
-        }
-        else
-        {
-            instance = this;
-        }
-    }
+   
     public enum HeartPart
     {
         full,

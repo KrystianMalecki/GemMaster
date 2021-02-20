@@ -19,14 +19,14 @@ public class PlayerScript : Entity, IDamageable
     [Foldout("Static Data")] public Animator animator;
     [Foldout("Static Data")] public Transform tvPoint;
     [Foldout("Static Data")] public BoxCollider2D playerCollider;
-
-
+    [Foldout("Static Data")] public HeartDisplay heartdisplay;
+    public float timeLeftToJump = 0;
     public float knockback;
 
     public override void Start()
     {
         base.Start();
-        HeartDisplay.instance.UpdateHP(currentHP, maxHP);
+        heartdisplay.UpdateHP(currentHP, maxHP);
 
     }
     void Flip()
@@ -66,12 +66,20 @@ public class PlayerScript : Entity, IDamageable
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.Joystick1Button0) || Input.GetKeyDown(KeyCode.UpArrow))
+        if (timeLeftToJump > 0)
+        {
+            timeLeftToJump -= Time.deltaTime;
+        }
+       
+            animator.SetBool("running", Mathf.Abs(ridgidBody2D.velocity.x) > 0.2);
+        
+        if ((Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.Joystick1Button0) || Input.GetKey(KeyCode.UpArrow))&& timeLeftToJump<=0)
         {
             if (IsGrounded())
             {
                 animator.Play("jump");
                 ridgidBody2D.AddForce(Vector2.up * jumpPower, ForceMode2D.Impulse);
+                timeLeftToJump = 0.4f;
             }
         }
     }
@@ -116,7 +124,13 @@ public class PlayerScript : Entity, IDamageable
             PickupObject po = collision.GetComponent<PickupObject>();
             if (po != null)
             {
-
+                if(po is HeartPickup)
+                {
+                    if (currentHP == maxHP)
+                    {
+                        return;
+                    }
+                }
                 po.Pickup(this);
             }
             //}
@@ -125,7 +139,7 @@ public class PlayerScript : Entity, IDamageable
     public override void AddHP(int number)
     {
         base.AddHP(number);
-        HeartDisplay.instance.UpdateHP(currentHP, maxHP);
+        heartdisplay.UpdateHP(currentHP, maxHP);
 
     }
     public override void Die()
