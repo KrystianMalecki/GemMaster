@@ -34,5 +34,5 @@ public class GameManager : MonoBehaviour
         go.GetComponent<SpriteRenderer>().sprite = gemSO.image;
 
     }
-    public GameObject pareticles;
+    public GameObject particles;
 }

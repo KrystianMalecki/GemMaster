@@ -6,7 +6,7 @@ using UnityEngine;
 public class CodeGem : ScriptableObject
 {
     public Sprite image;
-    public virtual void Execute(LogicObject lobject)
+    public virtual void Execute(LogicObject lobject, GemLogicBlock glb)
     {
 
     }

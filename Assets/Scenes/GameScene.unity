@@ -6081,14 +6081,14 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 592623811}
-  m_BodyType: 0
+  m_BodyType: 2
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 1
   m_Mass: 2.1504
   m_LinearDrag: 1
   m_AngularDrag: 1
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -15264,6 +15264,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gems:
+  - {fileID: 11400000, guid: 6c6fd6f463ceaea43888ea4d7b649007, type: 2}
   - {fileID: 11400000, guid: 6c6fd6f463ceaea43888ea4d7b649007, type: 2}
   objectsConnected:
   - {fileID: 592623816}

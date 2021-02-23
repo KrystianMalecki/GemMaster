@@ -2,12 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 using NaughtyAttributes;
+using DG.Tweening;
+using CodeHelper;
 public class MovableObject : LogicObject
 {
     [Foldout("Static Data")] public Rigidbody2D r2d;
-    public override void Move(Vector2 vector)
+    public override void Move(Vector2 vector,GemLogicBlock glb)
     {
-        base.Move(vector);
-        r2d.AddRelativeForce(vector, ForceMode2D.Force);
+      
+        transform.DOLocalMove(transform.position + vector.ToVector3(), 1).OnComplete(glb.HalfMTTNS);
+      
     }
 }
