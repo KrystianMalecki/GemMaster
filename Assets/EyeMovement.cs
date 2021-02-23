@@ -1,10 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using NaughtyAttributes;
 public class EyeMovement : MonoBehaviour
 {
-    public Transform mainTransform;
+    [Foldout("Static Data")] public Transform mainTransform;
     //Vector2 eyeXrange = new Vector2(-0.125f, -0.0625f);
     //Vector2 eyeYrange = new Vector2(0.125f, 0);
     float eyeY, eyeX;

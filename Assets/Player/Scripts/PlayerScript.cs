@@ -6,8 +6,7 @@ using UnityEngine;
 
 public class PlayerScript : Entity, IDamageable
 {
-    [SerializeField]
-    private bool showMoreData;
+  
     [Foldout("Static Data")] public LayerMask platformLayerMask;
 
     [Foldout("Static Data")] public Rigidbody2D ridgidBody2D;
