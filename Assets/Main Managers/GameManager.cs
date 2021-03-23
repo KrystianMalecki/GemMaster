@@ -20,19 +20,11 @@ public class GameManager : MonoBehaviour
 
         }
     }
-    [BoxGroup("Gem Generation")]
 
-    public GameObject gemPrefab;
-    [BoxGroup("Gem Generation")]
-    public CodeGem gemSO;
-    [Button("Spawn New Gem")]
-    void SpawnNewGame()
-    {
-        GameObject go = Instantiate(gemPrefab, Vector3.zero, Quaternion.identity);
-        GemPickup gp = go.GetComponent<GemPickup>();
-        gp.gemSO = gemSO;
-        go.GetComponent<SpriteRenderer>().sprite = gemSO.image;
 
-    }
-    public GameObject particles;
+
+
+
+    [Foldout("Prefabs")] public GameObject particles;
+    public Transform dragHead;
 }
