@@ -1,6 +1,6 @@
 ﻿public class GemPickup : PickupObject
 {
-    public CodeGem gemSO;
+    public Gem gem;
 
     public override void Pickup(Entity entity)
     {

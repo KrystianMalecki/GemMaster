@@ -4,32 +4,48 @@ using UnityEngine;
 
 public class GemLogicBlock : MonoBehaviour
 {
-    public List<CodeGem> gems = new List<CodeGem>();
+    public List<GemBox> gemBoxes = new List<GemBox>();
     public List<LogicObject> objectsConnected = new List<LogicObject>();
-    public int slotCount;
 
-    public void GenerateSlots()
-    {
-        for (int i = 0; i < slotCount; i++)
-        {
 
-        }
-    }
     public void Execute()
     {
-
         StartCoroutine(ExecutionLoop());
     }
 
     int bufferstater;
     IEnumerator ExecutionLoop()
     {
-        for (int i = 0; i < gems.Count; i++)
+        for (int i = 0; i < gemBoxes.Count; i++)
         {
             bufferstater = 0;
-            for (int j = 0; j < objectsConnected.Count; j++)
+            foreach (LogicObject lo in objectsConnected)
             {
-                gems[i].Execute(objectsConnected[j], this);
+                switch (gemBoxes[i].functionGem.executionType)
+                {
+                    case GemExecutionType.Activate:
+                        {
+                            lo.Activate(this);
+                            break;
+                        }
+                    case GemExecutionType.Move:
+                        {
+                            lo.Move(this, gemBoxes[i].numberGem.GetValue() * CodeHelper.CodeHelper.GetDir(gemBoxes[i].data));
+                            break;
+                        }
+                    case GemExecutionType.Rotate:
+                        {
+                            lo.Rotate(this, gemBoxes[i].numberGem.GetValue() * CodeHelper.CodeHelper.GetDir(gemBoxes[i].data));
+
+                            break;
+                        }
+                    case GemExecutionType.Toggle:
+                        {
+                            lo.Toggle(this, gemBoxes[i].data == 1);
+                            break;
+                        }
+                        //TODO: add function gem
+                }
             }
 
             yield return new WaitUntil(() => bufferstater == objectsConnected.Count);
@@ -42,8 +58,8 @@ public class GemLogicBlock : MonoBehaviour
     {
         bufferstater++;
     }
-    public void GetGems()
+    public void Edit()
     {
-
+        UIManager.instance.OpenProgrammingUI(this);
     }
 }

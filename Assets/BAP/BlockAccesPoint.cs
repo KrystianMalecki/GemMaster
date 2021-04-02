@@ -11,7 +11,8 @@ public class BlockAccesPoint : MonoBehaviour
     public UnityEvent OnAttach;
     public UnityEvent OnDeattach;
     public UnityEvent OnExecute;
-    bool canExecute;
+    public UnityEvent OnQ;
+    bool isAttached;
     public void Attach(FollowerMovement fm)
     {
         attached = fm;
@@ -21,18 +22,21 @@ public class BlockAccesPoint : MonoBehaviour
     }
     IEnumerator attach()
     {
-//        animator.Play("Deattach new");
+        //        animator.Play("Deattach new");
 
         yield return new WaitForSeconds(40f / 60f);
         Destroy(Instantiate(GameManager.instance.particles, transform.position, Quaternion.identity), 2f);
         OnAttach.Invoke();
-        canExecute = true;
+        isAttached = true;
 
     }
     public void Execute()
     {
         OnExecute.Invoke();
-
+    }
+    public void Q()
+    {
+        OnQ.Invoke();
     }
     public void Deattach()
     {
@@ -41,18 +45,25 @@ public class BlockAccesPoint : MonoBehaviour
     }
     public void Update()
     {
-        if (canExecute)
+        if (isAttached)
         {
             if (Input.GetKeyDown(KeyCode.E))
             {
                 Execute();
+            }
+            if (Input.GetKeyDown(KeyCode.Q))
+            {
+                if (PlayerScript.closestInteractableObject == null)
+                {
+                    Q();
+                }
             }
         }
     }
     IEnumerator deattach()
     {
         //   animator.Play("Deattach");
-        canExecute = false;
+        isAttached = false;
         animator.Play("Deattach new");
 
         //   yield return new WaitForSeconds(50f / 60f);

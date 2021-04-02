@@ -9,7 +9,7 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: uishine
   m_Shader: {fileID: -6465566751694194690, guid: 8330b522b162fea49a850ee4e7d21c49, type: 3}
-  m_ShaderKeywords: 
+  m_ShaderKeywords: ETC1_EXTERNAL_ALPHA
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -39,7 +39,7 @@ Material:
     - Vector1_98FAA17F: 3
     - _EnableExternalAlpha: 0
     m_Colors:
-    - _Color: {r: 7.0698, g: 11.984314, b: 0, a: 1}
+    - _Color: {r: 453.77255, g: 766.9961, b: 0, a: 1}
     - _Flip: {r: 1, g: 1, b: 1, a: 1}
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []

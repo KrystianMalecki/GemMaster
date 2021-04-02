@@ -1,12 +1,13 @@
 ﻿using System.Collections;
 using CodeHelper;
-
+using DG.Tweening.Core;
+using DG.Tweening;
 using NaughtyAttributes;
 using UnityEngine;
 
 public class PlayerScript : Entity, IDamageable
 {
-  
+
     [Foldout("Static Data")] public LayerMask platformLayerMask;
 
     [Foldout("Static Data")] public Rigidbody2D ridgidBody2D;
@@ -21,12 +22,18 @@ public class PlayerScript : Entity, IDamageable
     [Foldout("Static Data")] public HeartDisplay heartdisplay;
     public float timeLeftToJump = 0;
     public float knockback;
+    [SerializeReference]
+    public static InteractableObject closestInteractableObject;
 
     public override void Start()
     {
         base.Start();
         heartdisplay.UpdateHP(currentHP, maxHP);
-
+        bob(true);
+    }
+    public void bob(bool b)
+    {
+        animator.transform.DOLocalMoveY(0.0625f * (b ? 1f : -1f), (Mathf.Abs(ridgidBody2D.velocity.x) > 0.2f ? 0.25f : 0.5f)).SetEase(Ease.OutSine).OnComplete(() => { bob(!b); });
     }
     void Flip()
     {
@@ -35,17 +42,25 @@ public class PlayerScript : Entity, IDamageable
         scale.x *= -1;
         gameObject.transform.localScale = scale;
     }
-
     bool IsGrounded()
     {
         RaycastHit2D rayCastHit = Physics2D.BoxCast(groundCheckCol.bounds.center, groundCheckCol.bounds.size, 0f, Vector2.down, 0.2f, platformLayerMask);
         return rayCastHit.collider != null;
     }
-
     void FixedUpdate()
     {
 
-        horizontalMove = Input.GetAxisRaw("Horizontal");
+        //  horizontalMove = Input.GetAxisRaw("Horizontal");
+        horizontalMove = 0;
+        if (Input.GetKey(SettingsManager.instance.GetKey(GameKey.Right)))
+        {
+            horizontalMove += 1;
+        }
+        if (Input.GetKey(SettingsManager.instance.GetKey(GameKey.Left)))
+        {
+            horizontalMove += -1;
+
+        }
 
         ridgidBody2D.velocity = new Vector2(horizontalMove * speed, ridgidBody2D.velocity.y);
 
@@ -62,17 +77,16 @@ public class PlayerScript : Entity, IDamageable
 
         SetAnimation();
     }
-
     void Update()
     {
         if (timeLeftToJump > 0)
         {
             timeLeftToJump -= Time.deltaTime;
         }
-       
-            animator.SetBool("running", Mathf.Abs(ridgidBody2D.velocity.x) > 0.2);
-        
-        if ((Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.Joystick1Button0) || Input.GetKey(KeyCode.UpArrow))&& timeLeftToJump<=0)
+
+        animator.SetBool("running", Mathf.Abs(ridgidBody2D.velocity.x) > 0.2);
+
+        if (Input.GetKey(SettingsManager.instance.GetKey(GameKey.Jump)) && timeLeftToJump <= 0)
         {
             if (IsGrounded())
             {
@@ -81,8 +95,11 @@ public class PlayerScript : Entity, IDamageable
                 timeLeftToJump = 0.4f;
             }
         }
+        if (Input.GetKeyDown(SettingsManager.instance.GetKey(GameKey.Interact)))
+        {
+            closestInteractableObject?.OnInteract.Invoke();
+        }
     }
-
     void SetAnimation()
     {
         if (animator != null)
@@ -92,7 +109,6 @@ public class PlayerScript : Entity, IDamageable
 
         }
     }
-
     public override void TakeDamage(int number, Vector2 dir)
     {
         base.TakeDamage(number, dir);
@@ -101,10 +117,9 @@ public class PlayerScript : Entity, IDamageable
         /*make better knockback function
         maybe clamp dirtection to only 1 or -1 and then multiply by knockback force and little bit up?
          */
-       
+
 
     }
-
     IEnumerable inmunityFrames()
     {
         playerCollider.enabled = false;
@@ -112,7 +127,6 @@ public class PlayerScript : Entity, IDamageable
         playerCollider.enabled = true;
 
     }
-   
     public void OnTriggerEnter2D(Collider2D collision)
     {
 
@@ -123,7 +137,7 @@ public class PlayerScript : Entity, IDamageable
             PickupObject po = collision.GetComponent<PickupObject>();
             if (po != null)
             {
-                if(po is HeartPickup)
+                if (po is HeartPickup)
                 {
                     if (currentHP == maxHP)
                     {

@@ -3,31 +3,37 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
+
 public class GemSlot : MonoBehaviour, IDropHandler
 {
     public UIGem gem;
     public int id = -1;
-    public void Hide()
+    public GemType type;
+    public virtual void Hide()
     {
         gameObject.SetActive(false);
     }
-    public void Setup(CodeGem cg, int id = -1)
+    public virtual void Show()
+    {
+        gameObject.SetActive(true);
+    }
+    public virtual void Setup(Gem g, int id = -1)
     {
         gameObject.SetActive(true);
 
         this.id = id;
-        if (cg != null)
+        if (g != null)
         {
             if (gem == null)
             {
-                UIGem uig = GemManager.instance.MakeUIGem(cg, this);
+                UIGem uig = GemManager.instance.MakeUIGem(g, this);
                 gem = uig;
                 uig.AddToSlot(this);
             }
-            else if (gem.gem != cg)
+            else if (gem.gem != g)
             {
                 Destroy(gem.gameObject);
-                UIGem uig = GemManager.instance.MakeUIGem(cg, this);
+                UIGem uig = GemManager.instance.MakeUIGem(g, this);
                 gem = uig;
                 uig.AddToSlot(this);
             }
@@ -37,23 +43,49 @@ public class GemSlot : MonoBehaviour, IDropHandler
             }
         }
     }
-    public void Setup(UIGem uig)
+    public virtual void Setup(UIGem uig)
     {
         gem = uig;
     }
-    public void OnDrop(PointerEventData eventData)
+    public virtual void OnDrop(PointerEventData eventData)
     {
         Debug.Log(eventData.pointerDrag.name + "was dropped on " + gameObject.name);
 
         //UIGem d = eventData.pointerDrag.GetComponent<UIGem>();
 
-        if (UIGem.selected != null)
+        if (CheckIfCanPlace(UIGem.selected))
+        {
+            AcceptDrop();
+        }
+    }
+    public virtual bool CheckIfCanPlace(UIGem uigem)
+    {
+        if (uigem != null)
         {
             if (gem == null)
             {
-                UIGem.selected.startSlot.gem = null;
-                UIGem.selected.AddToSlot(this);
+                if (uigem.gem.type == type)
+                {
+                    return true;
+
+                }
             }
         }
+        return false;
+    }
+    public virtual void AcceptDrop()
+    {
+        gem = UIGem.selected;
+        UIGem.selected.startSlot.RemoveGem();
+        UIGem.selected.AddToSlot(this);
+    }
+    public virtual void ReturnGem()
+    {
+
+
+    }
+    public virtual void RemoveGem()
+    {
+        gem = null;
     }
 }
