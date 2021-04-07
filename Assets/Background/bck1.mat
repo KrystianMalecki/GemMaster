@@ -42,7 +42,7 @@ Material:
     - Vector1_AFD84CEB: 0.01
     - _EnableExternalAlpha: 0
     m_Colors:
-    - Vector2_D69412F: {r: -0.12, g: 0.32, b: 0, a: 0}
+    - Vector2_D69412F: {r: 0, g: 0.29, b: 0, a: 0}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _Flip: {r: 1, g: 1, b: 1, a: 1}
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
