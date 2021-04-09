@@ -5,7 +5,7 @@ public class Entity : MonoBehaviour, IDamageable
     //Maybe other creatures will be able to eat stuff? just for fun.
     public int maxHP;
     [SerializeField]
-    protected int currentHP;
+    public int currentHP;
     public virtual void Start()
     {
         currentHP = 0;
@@ -23,7 +23,7 @@ public class Entity : MonoBehaviour, IDamageable
     {
         AddHP(-number);
         if (currentHP <= 0)
-        { 
+        {
             Die();
             return;
         }

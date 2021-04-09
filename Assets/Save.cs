@@ -5,5 +5,9 @@ using UnityEngine;
 public class Save
 {
     [SerializeField]
-    public List< LevelData> levelDatas = new List< LevelData>();
+    public List<LevelData> levelDatas = new List<LevelData>();
+    public LevelTag lastLvl=LevelTag.debug;
+    public DoorDir lastDir;
+    public int currentHP;
+    public int maxHP;
 }

@@ -20,6 +20,8 @@ public class PlayerScript : Entity, IDamageable
     [Foldout("Static Data")] public Transform tvPoint;
     [Foldout("Static Data")] public BoxCollider2D playerCollider;
     [Foldout("Static Data")] public HeartDisplay heartdisplay;
+    [Foldout("Static Data")] public AudioSource deathsource;
+
     public float timeLeftToJump = 0;
     public float knockback;
     [SerializeReference]
@@ -205,5 +207,6 @@ public class PlayerScript : Entity, IDamageable
     {
         base.Die();
         Debug.Log("Player died.");
+        deathsource.Play();
     }
 }

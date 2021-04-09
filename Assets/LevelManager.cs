@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-public enum LevelTag { tutorial, debug, debug2 }
+public enum LevelTag { none, tutorial, debug, debug2 }
 
 public class LevelManager : MonoBehaviour
 {
@@ -23,12 +23,20 @@ public class LevelManager : MonoBehaviour
     public FollowerMovement follower;
     public List<Level> levels = new List<Level>();
     public static Level currentLevel;
+    public static DoorDir currentDir;
+
     public BlurManager blur;
     public void LoadLevel(LevelTag newLeveltag, DoorDir from)
     {
+        if (newLeveltag == LevelTag.none)
+        {
+            Debug.LogError("CAn't find level with tag " + newLeveltag.ToString());
+
+            return;
+        }
         blur.ToggleBlur(true, true);
         StartCoroutine(mid(newLeveltag, from));
-
+        currentDir = from;
 
     }
     IEnumerator end()
@@ -101,6 +109,6 @@ public class LevelManager : MonoBehaviour
     }
     public void Start()
     {
-        LoadLevel(LevelTag.debug, DoorDir.Right);
+        LoadLevel(SaveManager.instance.currentSave.lastLvl, SaveManager.instance.currentSave.lastDir);
     }
 }

@@ -10,6 +10,7 @@ public class SaveManager : MonoBehaviour
     public Save defaultSave;
     public Save currentSave;
     public string saveName;
+    public PlayerScript player;
     public void Awake()
     {
         if (instance != null)
@@ -24,12 +25,12 @@ public class SaveManager : MonoBehaviour
         if (!PlayerPrefs.HasKey("notFirstBoot"))
         {
             PlayerPrefs.SetString("notFirstBoot", "true");
-            SaveData(currentSave, saveName);
+            SaveData(defaultSave, saveName);
         }
     }
     public void Start()
     {
-        LoadLevels();
+        Load();
 
     }
     public void SaveData(Save save, string name)
@@ -40,7 +41,7 @@ public class SaveManager : MonoBehaviour
                      + "/Save-" + name + ".dat");
         bf.Serialize(file, save);
         file.Close();
-        Debug.Log("Saved in "+ Application.persistentDataPath
+        Debug.Log("Saved in " + Application.persistentDataPath
                      + "/Save-" + name + ".dat");
     }
     public Save LoadData(string name)
@@ -54,17 +55,17 @@ public class SaveManager : MonoBehaviour
 
         file.Close();
 
-        Debug.Log("Game data loaded from "+ Application.persistentDataPath
+        Debug.Log("Game data loaded from " + Application.persistentDataPath
                      + "/Save-" + name + ".dat");
 
         return data;
     }
     public void OnDestroy()
     {
-        SaveLevels();
-       // SaveData(currentSave, saveName);
+        Save();
+        // SaveData(currentSave, saveName);
     }
-    public void LoadLevels()
+    public void Load()
     {
         currentSave = LoadData(saveName);
 
@@ -77,15 +78,21 @@ public class SaveManager : MonoBehaviour
             }
             l.levelData = ld;
         }
+        player.maxHP = currentSave.maxHP;
+        player.currentHP = 0;
+        player.AddHP(currentSave.currentHP);
     }
-    public void SaveLevels()
+    public void Save()
     {
 
         foreach (Level l in LevelManager.instance.levels)
         {
             l.SaveData();
-            currentSave.levelDatas.Add( l.levelData);
+            currentSave.levelDatas.Add(l.levelData);
         }
+        currentSave.lastLvl = LevelManager.currentLevel.levelData.tagName;
+        currentSave.lastDir = LevelManager.currentDir;
+
         SaveData(currentSave, saveName);
 
     }
