@@ -9,8 +9,6 @@
             base.Pickup(entity);
         }
     }
-    void Start()
-    {
-    }
+    
 
 }

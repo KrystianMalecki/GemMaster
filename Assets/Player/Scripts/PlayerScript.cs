@@ -24,7 +24,21 @@ public class PlayerScript : Entity, IDamageable
     public float knockback;
     [SerializeReference]
     public static InteractableObject closestInteractableObject;
+    bool hackmode = false;
+    [Button("Hacks on")]
+    void TurnOnFreeMode()
+    {
+        ridgidBody2D.gravityScale = 0;
+        hackmode = true;
+    }
+    [Button("Hacks off")]
 
+    void TurnOffFreeMode()
+    {
+        ridgidBody2D.gravityScale = 1;
+        hackmode = false;
+
+    }
     public override void Start()
     {
         base.Start();
@@ -51,19 +65,33 @@ public class PlayerScript : Entity, IDamageable
     {
 
         //  horizontalMove = Input.GetAxisRaw("Horizontal");
-        horizontalMove = 0;
-        if (Input.GetKey(SettingsManager.instance.GetKey(GameKey.Right)))
+        if (hackmode)
         {
-            horizontalMove += 1;
+            if (Input.GetKey(SettingsManager.instance.GetKey(GameKey.Right)))
+            {
+                transform.Translate(speed * Time.deltaTime * Vector3.right * 5);
+            }
+            if (Input.GetKey(SettingsManager.instance.GetKey(GameKey.Left)))
+            {
+                transform.Translate(speed * Time.deltaTime * Vector3.left * 5);
+
+            }
         }
-        if (Input.GetKey(SettingsManager.instance.GetKey(GameKey.Left)))
+        else
         {
-            horizontalMove += -1;
+            horizontalMove = 0;
+            if (Input.GetKey(SettingsManager.instance.GetKey(GameKey.Right)))
+            {
+                horizontalMove += 1;
+            }
+            if (Input.GetKey(SettingsManager.instance.GetKey(GameKey.Left)))
+            {
+                horizontalMove += -1;
 
+            }
+
+            ridgidBody2D.velocity = new Vector2(horizontalMove * speed * (IsGrounded() ? 1f : 0.6f), ridgidBody2D.velocity.y);
         }
-
-        ridgidBody2D.velocity = new Vector2(horizontalMove * speed, ridgidBody2D.velocity.y);
-
 
         if (horizontalMove < 0 && facingRight)
         {
@@ -76,30 +104,48 @@ public class PlayerScript : Entity, IDamageable
         }
 
         SetAnimation();
+
     }
     void Update()
     {
-        if (timeLeftToJump > 0)
+        if (hackmode)
         {
-            timeLeftToJump -= Time.deltaTime;
-        }
-
-        animator.SetBool("running", Mathf.Abs(ridgidBody2D.velocity.x) > 0.2);
-
-        if (Input.GetKey(SettingsManager.instance.GetKey(GameKey.Jump)) && timeLeftToJump <= 0)
-        {
-            if (IsGrounded())
+            if (Input.GetKey(SettingsManager.instance.GetKey(GameKey.Jump)))
             {
-                animator.Play("jump");
-                ridgidBody2D.AddForce(Vector2.up * jumpPower, ForceMode2D.Impulse);
-                timeLeftToJump = 0.4f;
+                transform.Translate(speed * Time.deltaTime * Vector3.up * 5);
+            }
+            if (Input.GetKey(SettingsManager.instance.GetKey(GameKey.Down)))
+            {
+                transform.Translate(speed * Time.deltaTime * Vector3.down * 5);
+
             }
         }
-        if (Input.GetKeyDown(SettingsManager.instance.GetKey(GameKey.Interact)))
+
+        else
         {
-            closestInteractableObject?.OnInteract.Invoke();
+            if (timeLeftToJump > 0)
+            {
+                timeLeftToJump -= Time.deltaTime;
+            }
+
+            animator.SetBool("running", Mathf.Abs(ridgidBody2D.velocity.x) > 0.2);
+
+            if (Input.GetKey(SettingsManager.instance.GetKey(GameKey.Jump)) && timeLeftToJump <= 0)
+            {
+                if (IsGrounded())
+                {
+                    animator.Play("jump");
+                    ridgidBody2D.AddForce(Vector2.up * jumpPower, ForceMode2D.Impulse);
+                    timeLeftToJump = 0.4f;
+                }
+            }
+            if (Input.GetKeyDown(SettingsManager.instance.GetKey(GameKey.Interact)))
+            {
+                closestInteractableObject?.OnInteract.Invoke();
+            }
         }
     }
+
     void SetAnimation()
     {
         if (animator != null)

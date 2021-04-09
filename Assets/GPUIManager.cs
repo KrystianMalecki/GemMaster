@@ -23,7 +23,8 @@ public class GPUIManager : MonoBehaviour
     public GemLogicBlock gemLogicBlock;
     public void Start()
     {
-        desc.text = TranslationManager.instance.Translate("{gem};").ColorForTMPro(cmdRed);
+        //TODO: add full desc
+        desc.text = TranslationManager.instance.Translate("{type} = {gem};\n").ColorForTMPro(cmdRed);
     }
     public void Open(GemLogicBlock glb)
     {

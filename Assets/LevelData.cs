@@ -1,11 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-public enum LevelTag { }
 [System.Serializable]
 public class LevelData
 {
     public LevelTag tagName;
-    public GameObject mainPart;
-    //TODO: add spawning enemies
+
+    public List<int> pickupIds = new List<int>();
+    public List<GLBData> glbdatas = new List<GLBData>();
+}
+[System.Serializable]
+public class GLBData
+{
+    public List<GemBox> gemBoxes = new List<GemBox>();
 }

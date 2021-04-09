@@ -13,7 +13,7 @@ public class SlotBox : MonoBehaviour
         this.id = id;
         functionSlot.Setup(gemBox.functionGem);
         numberSlot.Setup(gemBox.numberGem);
-        //TODO: add data icon
+        //TODO: add data icon and logic
     }
     public void Hide()
     {

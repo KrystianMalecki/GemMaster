@@ -9,8 +9,9 @@ public class HeartPickup : PickupObject
 
         base.Pickup(entity);
     }
-    void Start()
+    public override void Setup(Level l, int id)
     {
+        base.Setup(l, id);
         up();
     }
     void up()
@@ -22,5 +23,5 @@ public class HeartPickup : PickupObject
     {
         transform.DOLocalMoveY(transform.position.y - 0.2f, 2f).OnComplete(up);
     }
-   
+
 }

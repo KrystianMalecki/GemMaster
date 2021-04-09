@@ -1,0 +1,106 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+public enum LevelTag { tutorial, debug, debug2 }
+
+public class LevelManager : MonoBehaviour
+{
+    public static LevelManager instance;
+    public void Awake()
+    {
+        if (instance != null)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        else
+        {
+            instance = this;
+        }
+
+    }
+    public PlayerScript player;
+    public FollowerMovement follower;
+    public List<Level> levels = new List<Level>();
+    public static Level currentLevel;
+    public BlurManager blur;
+    public void LoadLevel(LevelTag newLeveltag, DoorDir from)
+    {
+        blur.ToggleBlur(true, true);
+        StartCoroutine(mid(newLeveltag, from));
+
+
+    }
+    IEnumerator end()
+    {
+        yield return new WaitForSeconds(0.5f);
+        blur.ToggleBlur(false, true);
+    }
+    IEnumerator mid(LevelTag newLeveltag, DoorDir from)
+    {
+        yield return new WaitForSeconds(0.5f);
+        currentLevel?.UnLoadLevel();
+        Level newLevel = levels.Find(x => x.levelData.tagName == newLeveltag);
+        if (newLevel == null)
+        {
+            Debug.LogError("CAn't find level with tag " + newLeveltag.ToString());
+        }
+        newLevel.LoadLevel();
+        Vector2 vel = player.ridgidBody2D.velocity;
+        switch (from)
+        {
+            case DoorDir.Down:
+                {
+                    if (newLevel.upDoor == null)
+                    {
+                        Debug.LogError("No corresponding door!");
+                    }
+                    player.transform.position = newLevel.upDoor.enterPosition.position;
+                    follower.transform.position = newLevel.upDoor.transform.position;
+                    player.ridgidBody2D.AddForce(Vector2.down * 5f);
+                    break;
+                }
+            case DoorDir.Up:
+                {
+                    if (newLevel.downDoor == null)
+                    {
+                        Debug.LogError("No corresponding door!");
+                    }
+                    player.transform.position = newLevel.downDoor.enterPosition.position;
+                    follower.transform.position = newLevel.downDoor.transform.position;
+                    player.ridgidBody2D.AddForce(Vector2.up * 5f);
+                    break;
+                }
+            case DoorDir.Left:
+                {
+                    if (newLevel.rightDoor == null)
+                    {
+                        Debug.LogError("No corresponding door!");
+                    }
+                    player.transform.position = newLevel.rightDoor.enterPosition.position;
+                    follower.transform.position = newLevel.rightDoor.transform.position;
+                    player.ridgidBody2D.AddForce(Vector2.left * 5f);
+                    break;
+                }
+            case DoorDir.Right:
+                {
+                    if (newLevel.leftDoor == null)
+                    {
+                        Debug.LogError("No corresponding door!");
+                    }
+                    player.transform.position = newLevel.leftDoor.enterPosition.position;
+                    follower.transform.position = newLevel.leftDoor.transform.position;
+                    player.ridgidBody2D.AddForce(Vector2.right * 5f);
+                    break;
+                }
+        }
+
+        player.ridgidBody2D.velocity = vel;
+        currentLevel = newLevel;
+        StartCoroutine(end());
+    }
+    public void Start()
+    {
+        LoadLevel(LevelTag.debug, DoorDir.Right);
+    }
+}

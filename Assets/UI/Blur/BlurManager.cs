@@ -15,18 +15,22 @@ public class BlurManager : MonoBehaviour
     Vector2 bckrange = new Vector2(0, 0.7f);
 
     public Image img;
-    public void ToggleBlur(bool value)
+    bool fullchange;
+    public void ToggleBlur(bool value, bool full = false)
     {
         //  StopAllCoroutines();
         //  StartCoroutine(Blur(value));
+        fullchange = full;
+        DOTween.Complete(this);
         DOTween.To(() => { return v; }, new DOSetter<float>(set), value ? 1f : 0f, transformationSpeed).SetEase(Ease.Linear);
     }
     void set(float f)
     {
         v = f;
-        blurVolume.weight = Mathf.Lerp(range.x, range.y, v);
+
+        blurVolume.weight = fullchange ? v : Mathf.Lerp(range.x, range.y, v);
         Color c = img.color;
-        c.a = Mathf.Lerp(bckrange.x, bckrange.y, v);
+        c.a = fullchange ? v : Mathf.Lerp(bckrange.x, bckrange.y, v);
         img.color = c;
 
     }
