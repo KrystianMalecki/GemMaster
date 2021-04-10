@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-public enum LevelTag { none, tutorial, debug, debug2 }
+public enum LevelTag { none, tutorial, debug, debug2, makstest }
 
 public class LevelManager : MonoBehaviour
 {
@@ -116,7 +116,7 @@ public class LevelManager : MonoBehaviour
         }
         else
         {
-           
+
 
         }
     }

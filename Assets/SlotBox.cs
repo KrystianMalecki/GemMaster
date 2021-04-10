@@ -6,6 +6,7 @@ public class SlotBox : MonoBehaviour
 {
     public GemSlot functionSlot;
     public GemSlot numberSlot;
+    public DataSlot dataSlot;
     public int id;
     public void Setup(GemBox gemBox, int id)
     {

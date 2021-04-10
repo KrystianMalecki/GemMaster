@@ -93,7 +93,7 @@ public class PlayerScript : Entity, IDamageable
 
             }
 
-            ridgidBody2D.velocity = new Vector2(horizontalMove * speed * (IsGrounded() ? 1f : 0.6f), ridgidBody2D.velocity.y);
+            ridgidBody2D.velocity = new Vector2(horizontalMove * speed , ridgidBody2D.velocity.y);
         }
 
         if (horizontalMove < 0 && facingRight)

@@ -36,6 +36,18 @@ public class GPUIManager : MonoBehaviour
 
     [SerializeReference]
     public GemLogicBlock gemLogicBlock;
+
+    public Sprite dataUp;
+    public Sprite dataRight;
+    public Sprite dataDown;
+    public Sprite dataLeft;
+
+    public Sprite dataOn;
+    public Sprite dataOff;
+
+
+
+
     public void Start()
     {
         //TODO: add full desc

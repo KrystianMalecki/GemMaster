@@ -76,6 +76,7 @@
     <Compile Include="Assets\Trash\Pickups\Gem\GemPickup.cs" />
     <Compile Include="Assets\ButtonAnimation.cs" />
     <Compile Include="Assets\GemLogicBlock.cs" />
+    <Compile Include="Assets\Collectable.cs" />
     <Compile Include="Assets\EyeMovement.cs" />
     <Compile Include="Assets\Scripts\CodeHelper.cs" />
     <Compile Include="Assets\UI\UI Stuffs\Bars\BarAnimator.cs" />
@@ -105,7 +106,7 @@
     <Compile Include="Assets\PauseScreenUI.cs" />
     <Compile Include="Assets\GemSlot.cs" />
     <Compile Include="Assets\Scripts\CameraScript.cs" />
-    <Compile Include="Assets\Collectable.cs" />
+    <Compile Include="Assets\DataSlot.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
