@@ -8,8 +8,9 @@ public class Collectable : PickupObject
     {
         if (entity is PlayerScript)
         {
-            GameManager.instance.SetChips(SaveManager.instance.currentSave.collectableCount + 1);
             base.Pickup(entity);
+            GameManager.instance.SetChips(SaveManager.instance.currentSave.collectableCount + 1);
+
         }
     }
 }

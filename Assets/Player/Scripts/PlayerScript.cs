@@ -20,7 +20,8 @@ public class PlayerScript : Entity, IDamageable
     [Foldout("Static Data")] public Transform tvPoint;
     [Foldout("Static Data")] public BoxCollider2D playerCollider;
     [Foldout("Static Data")] public HeartDisplay heartdisplay;
-    [Foldout("Static Data")] public AudioSource deathsource;
+    [Foldout("Static Data")] public AudioSource deathSound;
+    [Foldout("Static Data")] public AudioSource hurtSound;
 
     public float timeLeftToJump = 0;
     public float knockback;
@@ -162,6 +163,8 @@ public class PlayerScript : Entity, IDamageable
         base.TakeDamage(number, dir);
         StartCoroutine("inmunityFrames");
         ridgidBody2D.AddForce((transform.position.ToVector2() - dir).normalized * knockback, ForceMode2D.Impulse);
+        hurtSound.pitch = Random.Range(0.8f, 1.2f);
+        hurtSound.Play();
         /*make better knockback function
         maybe clamp dirtection to only 1 or -1 and then multiply by knockback force and little bit up?
          */
@@ -207,6 +210,6 @@ public class PlayerScript : Entity, IDamageable
     {
         base.Die();
         Debug.Log("Player died.");
-        deathsource.Play();
+        hurtSound.Play();
     }
 }

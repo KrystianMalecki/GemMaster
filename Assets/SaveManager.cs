@@ -99,6 +99,9 @@ public class SaveManager : MonoBehaviour
         currentSave.lastLvl = LevelManager.currentLevel.levelData.tagName;
         currentSave.lastDir = LevelManager.currentDir;
 
+        currentSave.maxHP = player.maxHP;
+        currentSave.currentHP = player.currentHP;
+
         SaveData(currentSave, saveName);
 
     }
