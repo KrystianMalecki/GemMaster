@@ -19,6 +19,7 @@ public class LevelManager : MonoBehaviour
         }
 
     }
+    public bool debug;
     public PlayerScript player;
     public FollowerMovement follower;
     public List<Level> levels = new List<Level>();
@@ -109,6 +110,14 @@ public class LevelManager : MonoBehaviour
     }
     public void Start()
     {
-        LoadLevel(SaveManager.instance.currentSave.lastLvl, SaveManager.instance.currentSave.lastDir);
+        if (!debug)
+        {
+            LoadLevel(SaveManager.instance.currentSave.lastLvl, SaveManager.instance.currentSave.lastDir);
+        }
+        else
+        {
+           
+
+        }
     }
 }
