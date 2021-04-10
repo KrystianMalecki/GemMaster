@@ -8,6 +8,11 @@ public class Save
     public List<LevelData> levelDatas = new List<LevelData>();
     public LevelTag lastLvl=LevelTag.debug;
     public DoorDir lastDir;
+
     public int currentHP;
     public int maxHP;
+
+    public int collectableCount;
+
+    public bool isEng;
 }

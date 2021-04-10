@@ -19,7 +19,10 @@ public class TranslationManager : MonoBehaviour
             DontDestroyOnLoad(gameObject);
 
         }
-        isEng = PlayerPrefs.GetInt("Language") == 1;
+
+        isEng = SaveManager.instance.currentSave.isEng;
+
+
     }
 
     public List<Translation> translations = new List<Translation>();

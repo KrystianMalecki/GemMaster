@@ -6,11 +6,26 @@ using CodeHelper;
 using NaughtyAttributes;
 public class GPUIManager : MonoBehaviour
 {
+    public static GPUIManager instance;
+    void Awake()
+    {
+        if (instance != null)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        else
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+
+        }
+    }
     public TextMeshProUGUI desc;
-    public Color cmdRed;
-    public Color cmdBlue;
-    public Color cmdGreen;
-    public Color cmdYellow;
+    public static Color cmdRed = new Color(1f, 0.6588235f, 0.6588235f);
+    public static Color cmdBlue = new Color(0.6666667f, 0.9215686f, 1f);
+    public static Color cmdGreen = new Color(0.7372549f, 1f, 0.6392157f);
+    public static Color cmdYellow = new Color(1f, 0.8901961f, 0.5647059f);
     [Foldout("SlotBoxes")]
     public Transform slotBoxTransform;
     [Foldout("SlotBoxes")]

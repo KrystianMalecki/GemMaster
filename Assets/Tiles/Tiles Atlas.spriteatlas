@@ -31,7 +31,7 @@ SpriteAtlas:
     variantMultiplier: 1
     packables:
     - {fileID: 102900000, guid: 97f2a14ae8597194c8df74ff0c6d2b4c, type: 3}
-    totalSpriteSurfaceArea: 32512
+    totalSpriteSurfaceArea: 34080
     bindAsDefault: 1
     isAtlasV2: 0
     cachedData: {fileID: 0}
@@ -60,6 +60,9 @@ SpriteAtlas:
   - {fileID: 7509860518518112746, guid: b275ad1413eaa654593cfb7afc47c260, type: 3}
   - {fileID: 6717470441782034276, guid: b275ad1413eaa654593cfb7afc47c260, type: 3}
   - {fileID: 8954718260495684846, guid: b275ad1413eaa654593cfb7afc47c260, type: 3}
+  - {fileID: 6545382614753218560, guid: 39b5fc565b520f944aaad79988ee13eb, type: 3}
+  - {fileID: -2393253423863688536, guid: 39b5fc565b520f944aaad79988ee13eb, type: 3}
+  - {fileID: 4493076713092915932, guid: 39b5fc565b520f944aaad79988ee13eb, type: 3}
   - {fileID: -598787213408308737, guid: 9c197c66cbe440646aac1da6a155f862, type: 3}
   - {fileID: 8190544468852561503, guid: 9c197c66cbe440646aac1da6a155f862, type: 3}
   - {fileID: -5923936366440571366, guid: 9c197c66cbe440646aac1da6a155f862, type: 3}
@@ -147,7 +150,10 @@ SpriteAtlas:
   - {fileID: 6193290335882477365, guid: 8337660b50b3eec4ba124f800a84da7e, type: 3}
   - {fileID: -5004791727209759167, guid: 8337660b50b3eec4ba124f800a84da7e, type: 3}
   - {fileID: -1874999468665147253, guid: 8337660b50b3eec4ba124f800a84da7e, type: 3}
+  - {fileID: 21300000, guid: e3a9721cb4894094d9b1af971af2d20e, type: 3}
+  - {fileID: 21300000, guid: 78efd30da4670fe4095018345ce57287, type: 3}
   - {fileID: 21300000, guid: 3cec569d4b1b2264ea129c56d388e85e, type: 3}
+  - {fileID: 21300000, guid: 62cd407ff5d1f0f429918b4d348d2d34, type: 3}
   m_PackedSpriteNamesToIndex:
   - grass_15
   - grass_14
@@ -172,6 +178,9 @@ SpriteAtlas:
   - torch_0
   - torch_1
   - torch_4
+  - bush_0
+  - bush_1
+  - bush_2
   - 1123_21
   - 1123_20
   - 1123_23
@@ -259,6 +268,9 @@ SpriteAtlas:
   - particles_6
   - particles_9
   - particles_8
+  - skull
+  - lantern
   - grass2
+  - stick
   m_Tag: Tiles Atlas
   m_IsVariant: 0

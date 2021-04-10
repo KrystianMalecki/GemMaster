@@ -43,9 +43,11 @@ public class HeartDisplay : MonoBehaviour
 
     void AddPart(HeartPart hp)
     {
+        
         while (counter >= hearts.Count)
         {
             GameObject go = Instantiate(heartPrefab, heartDisplayBox);
+            go.transform.SetSiblingIndex(counter+1);
             hearts.Add(go.GetComponent<Image>());
         }
         switch (hp)

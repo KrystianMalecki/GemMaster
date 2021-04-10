@@ -27,6 +27,7 @@ public class SaveManager : MonoBehaviour
             PlayerPrefs.SetString("notFirstBoot", "true");
             SaveData(defaultSave, saveName);
         }
+        currentSave = LoadData(saveName);
     }
     public void Start()
     {
@@ -65,10 +66,13 @@ public class SaveManager : MonoBehaviour
         Save();
         // SaveData(currentSave, saveName);
     }
+    public void OnApplicationQuit()
+    {
+        Save();
+    }
     public void Load()
     {
         currentSave = LoadData(saveName);
-
         foreach (LevelData ld in currentSave.levelDatas)
         {
             Level l = LevelManager.instance.levels.Find(x => x.levelData.tagName == ld.tagName);
@@ -84,6 +88,8 @@ public class SaveManager : MonoBehaviour
     }
     public void Save()
     {
+        currentSave.levelDatas.Clear();
+        currentSave.isEng = TranslationManager.instance.isEng;
 
         foreach (Level l in LevelManager.instance.levels)
         {
