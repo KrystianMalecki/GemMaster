@@ -71,11 +71,11 @@ public class PlayerScript : Entity, IDamageable
         //  horizontalMove = Input.GetAxisRaw("Horizontal");
         if (hackmode)
         {
-            if (Input.GetKey(SettingsManager.instance.GetKey(GameKey.Right)))
+            if ((SettingsManager.instance.IsKeyPressed(GameKey.Right)))
             {
                 transform.Translate(speed * Time.deltaTime * Vector3.right * 5);
             }
-            if (Input.GetKey(SettingsManager.instance.GetKey(GameKey.Left)))
+            if ((SettingsManager.instance.IsKeyPressed(GameKey.Left)))
             {
                 transform.Translate(speed * Time.deltaTime * Vector3.left * 5);
 
@@ -88,11 +88,11 @@ public class PlayerScript : Entity, IDamageable
 
 
                 horizontalMove = 0;
-                if (Input.GetKey(SettingsManager.instance.GetKey(GameKey.Right)))
+                if ((SettingsManager.instance.IsKeyPressed(GameKey.Right)))
                 {
                     horizontalMove += 1;
                 }
-                if (Input.GetKey(SettingsManager.instance.GetKey(GameKey.Left)))
+                if ((SettingsManager.instance.IsKeyPressed(GameKey.Left)))
                 {
                     horizontalMove += -1;
 
@@ -120,11 +120,11 @@ public class PlayerScript : Entity, IDamageable
     {
         if (hackmode)
         {
-            if (Input.GetKey(SettingsManager.instance.GetKey(GameKey.Jump)))
+            if ((SettingsManager.instance.IsKeyPressed(GameKey.Jump)))
             {
                 transform.Translate(speed * Time.deltaTime * Vector3.up * 5);
             }
-            if (Input.GetKey(SettingsManager.instance.GetKey(GameKey.Down)))
+            if ((SettingsManager.instance.IsKeyPressed(GameKey.Down)))
             {
                 transform.Translate(speed * Time.deltaTime * Vector3.down * 5);
 
@@ -140,7 +140,7 @@ public class PlayerScript : Entity, IDamageable
 
             animator.SetBool("running", Mathf.Abs(ridgidBody2D.velocity.x) > 0.2);
 
-            if (Input.GetKey(SettingsManager.instance.GetKey(GameKey.Jump)) && timeLeftToJump <= 0)
+            if ((SettingsManager.instance.IsKeyPressed(GameKey.Jump)) && timeLeftToJump <= 0)
             {
                 if (IsGrounded())
                 {
@@ -149,7 +149,7 @@ public class PlayerScript : Entity, IDamageable
                     timeLeftToJump = 0.4f;
                 }
             }
-            if (Input.GetKeyDown(SettingsManager.instance.GetKey(GameKey.Interact)))
+            if (SettingsManager.instance.IsKeyPressed(GameKey.Interact))
             {
                 closestInteractableObject?.OnInteract.Invoke();
             }

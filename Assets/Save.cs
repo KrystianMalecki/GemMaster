@@ -6,7 +6,7 @@ public class Save
 {
     [SerializeField]
     public List<LevelData> levelDatas = new List<LevelData>();
-    public LevelTag lastLvl=LevelTag.debug;
+    public LevelTag lastLvl = LevelTag.debug;
     public DoorDir lastDir;
 
     public int currentHP;
@@ -15,4 +15,9 @@ public class Save
     public int collectableCount;
 
     public bool isEng;
+
+    public float sfxVolume;
+    public float musicVolume;
+
+    public int quality;
 }

@@ -84,6 +84,9 @@ public class SaveManager : MonoBehaviour
         }
         player.maxHP = currentSave.maxHP;
         player.currentHP = 0;
+
+
+
         player.AddHP(currentSave.currentHP);
     }
     public void Save()
@@ -96,11 +99,15 @@ public class SaveManager : MonoBehaviour
             l.SaveData();
             currentSave.levelDatas.Add(l.levelData);
         }
-       // currentSave.lastLvl = LevelManager.currentLevel.levelData.tagName;
-       // currentSave.lastDir = LevelManager.currentDir;
+        // currentSave.lastLvl = LevelManager.currentLevel.levelData.tagName;
+        // currentSave.lastDir = LevelManager.currentDir;
 
         currentSave.maxHP = player.maxHP;
         currentSave.currentHP = player.currentHP;
+
+        currentSave.musicVolume = SettingsManager.instance.musicVolume;
+        currentSave.sfxVolume = SettingsManager.instance.sfxVolume;
+        currentSave.quality = SettingsManager.instance.quality;
 
         SaveData(currentSave, saveName);
 

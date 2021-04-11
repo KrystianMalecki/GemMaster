@@ -4,13 +4,14 @@ using TMPro;
 using UnityEngine;
 using DG.Tweening;
 using NaughtyAttributes;
+using UnityEngine.SceneManagement;
 
 public class MainMenuManager : MonoBehaviour
 {
     public static MainMenuManager instance;
     public TextMeshProUGUI keyText;
     public GameObject menu;
-
+    public GameObject credits;
     public void Awake()
     {
         if (instance != null)
@@ -56,14 +57,14 @@ public class MainMenuManager : MonoBehaviour
     }
     public void Quit()
     {
-
+        Application.Quit();
     }
     public void Credits()
     {
-
+        credits.SetActive(!credits.activeSelf);
     }
     public void Play()
     {
-
+        SceneManager.LoadScene(1);
     }
 }

@@ -1,8 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.EventSystems;
-public enum GameKey { Jump, Left, Right, Down, Interact, Connect, Edit, CloseWindow }
+using UnityEngine.UI;
+using NaughtyAttributes;
+public enum GameKey { Jump, Left, Right, Down, Interact, Connect, Edit, CloseWindow, Menu }
 public class SettingsManager : MonoBehaviour
 {
     public static SettingsManager instance;
@@ -19,6 +23,11 @@ public class SettingsManager : MonoBehaviour
             DontDestroyOnLoad(gameObject);
 
         }
+        musicVolume = SaveManager.instance.currentSave.musicVolume;
+        sfxVolume = SaveManager.instance.currentSave.sfxVolume;
+        musicSlider.value = musicVolume;
+        sfxSlider.value = sfxVolume;
+        ChangeQuality(SaveManager.instance.currentSave.quality);
     }
     [SerializeField]
     public Dictionary<GameKey, KeyBinding> keyBinding = new Dictionary<GameKey, KeyBinding>()
@@ -31,7 +40,7 @@ public class SettingsManager : MonoBehaviour
           {GameKey.Connect,new KeyBinding(KeyCode.R) },
           {GameKey.Edit,new KeyBinding(KeyCode.Q) },
           {GameKey.CloseWindow,new KeyBinding(KeyCode.Escape) },
-
+           {GameKey.Menu,new KeyBinding(KeyCode.M) },
 
     };
 
@@ -43,6 +52,24 @@ public class SettingsManager : MonoBehaviour
             Debug.Log("Can't find keybinding for " + key.ToString());
         }
         return isAlternativeModeOn ? kc.alternativeKey : kc.key;
+    }
+    public bool IsKeyPressed(GameKey key)
+    {
+        KeyBinding kc = new KeyBinding();
+        if (!keyBinding.TryGetValue(key, out kc))
+        {
+            Debug.Log("Can't find keybinding for " + key.ToString());
+        }
+        return Input.GetKey(kc.alternativeKey) || Input.GetKey(kc.key);
+    }
+    public bool IsKeyPressedDown(GameKey key)
+    {
+        KeyBinding kc = new KeyBinding();
+        if (!keyBinding.TryGetValue(key, out kc))
+        {
+            Debug.Log("Can't find keybinding for " + key.ToString());
+        }
+        return Input.GetKeyDown(kc.alternativeKey) || Input.GetKeyDown(kc.key);
     }
     public bool isAlternativeModeOn;
     public void Update()
@@ -158,6 +185,47 @@ public class SettingsManager : MonoBehaviour
 
 };
 
+    [Foldout("Sound")] public float musicVolume;
+    [Foldout("Sound")] public float sfxVolume;
+
+    [Foldout("Sound")] public UnityEvent onMusicVolumeChange;
+    [Foldout("Sound")] public UnityEvent onSfxVolumeChange;
+
+    [Foldout("Sound")] public Slider musicSlider;
+    [Foldout("Sound")] public Slider sfxSlider;
+
+    [Foldout("Sound")] public TextMeshProUGUI musicText;
+    [Foldout("Sound")] public TextMeshProUGUI sfxText;
+
+    public void UpdateSFXVolume()
+    {
+        sfxVolume = sfxSlider.value;
+        sfxText.text = "SFX Volume: " + (sfxVolume * 100).ToString("0") + "%";
+
+        onSfxVolumeChange.Invoke();
+    }
+    public void UpdateMusicVolume()
+    {
+        musicVolume = musicSlider.value;
+        musicText.text = "Music Volume: " + (musicVolume * 100).ToString("0") + "%";
+        onMusicVolumeChange.Invoke();
+    }
+
+    [Foldout("Quality")] public Toggle lowQuality;
+    [Foldout("Quality")] public Toggle mediumQuality;
+    [Foldout("Quality")] public Toggle hightQuality;
+
+
+    [Foldout("Quality")] public int quality = 0;
+    public void ChangeQuality(int index)
+    {
+        quality = index;
+
+        lowQuality.SetIsOnWithoutNotify(index == 0);
+        mediumQuality.SetIsOnWithoutNotify(index == 1);
+        hightQuality.SetIsOnWithoutNotify(index == 2);
+        QualitySettings.SetQualityLevel(index, true);
+    }
 }
 [System.Serializable]
 public class KeyBinding

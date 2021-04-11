@@ -40,7 +40,7 @@ public class GameManager : MonoBehaviour
     {
         button.transform.position = (tr.position + new Vector3(0, -0.7f, 0)).AlignToPixel();
         button.gameObject.SetActive(true);
-        button.letter.text = SettingsManager.instance.GetKey(GameKey.Interact).ToString();
+        button.letter.text = c.ToString();
     }
     public void HideButton()
     {

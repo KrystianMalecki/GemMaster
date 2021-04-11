@@ -8,4 +8,8 @@ public class PauseScreenUI : MonoBehaviour
     {
         gameObject.SetActive(false);
     }
+    public void Show()
+    {
+        gameObject.SetActive(true);
+    }
 }

@@ -29,17 +29,24 @@ public class UIManager : MonoBehaviour
         blurManager.ToggleBlur(true);
         gpuiManager.Open(glb);
     }
-    public void Hide()
+    public void HidePUI()
     {
         gpuiManager.Hide();
         blurManager.ToggleBlur(false);
         psui.Hide();
     }
+
     public void Update()
     {
-        if (Input.GetKeyDown(SettingsManager.instance.GetKey(GameKey.CloseWindow)))
+        if ((SettingsManager.instance.IsKeyPressedDown(GameKey.Menu)))
         {
-            Hide();
+            psui.Show();
+        }
+        if ((SettingsManager.instance.IsKeyPressedDown(GameKey.CloseWindow)))
+        {
+            HidePUI();
+            psui.Hide();
+
         }
     }
 }
