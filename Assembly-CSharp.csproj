@@ -110,6 +110,7 @@
     <Compile Include="Assets\MainMenuManager.cs" />
     <Compile Include="Assets\Scripts\SoundPoint.cs" />
     <Compile Include="Assets\SettingUI.cs" />
+    <Compile Include="Assets\Scripts\Maker.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
