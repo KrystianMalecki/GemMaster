@@ -12,6 +12,9 @@ public class MainMenuManager : MonoBehaviour
     public TextMeshProUGUI keyText;
     public GameObject menu;
     public GameObject credits;
+    public GameObject popup;
+    public GameObject black;
+
     public void Awake()
     {
         if (instance != null)
@@ -35,6 +38,8 @@ public class MainMenuManager : MonoBehaviour
     }
     public void Start()
     {
+        black.SetActive(false);
+
         keyText.alpha = 0f;
         StartCoroutine(startTimer());
     }
@@ -42,8 +47,8 @@ public class MainMenuManager : MonoBehaviour
     public void Update()
     {
         if (started)
-        { 
-        
+        {
+
         }
         else
         {
@@ -63,8 +68,13 @@ public class MainMenuManager : MonoBehaviour
     {
         credits.SetActive(!credits.activeSelf);
     }
+    public void Popup()
+    {
+        popup.SetActive(!popup.activeSelf);
+    }
     public void Play()
     {
+        black.SetActive(true);
         SceneManager.LoadScene(1);
     }
 }

@@ -2233,7 +2233,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 232, y: -121}
+  m_AnchoredPosition: {x: 228, y: -97}
   m_SizeDelta: {x: 118.56091, y: 35.582825}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &804207930
@@ -2278,7 +2278,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 804207931}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 997451811}
+        m_TargetAssemblyTypeName: MainMenuManager, Assembly-CSharp
+        m_MethodName: Credits
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
 --- !u!114 &804207931
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2695,7 +2707,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -267.2, y: 80.31}
+  m_AnchoredPosition: {x: -274, y: 59}
   m_SizeDelta: {x: 45, y: 45}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &883913401
@@ -2902,7 +2914,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyText: {fileID: 629675506}
   menu: {fileID: 842709122641501998}
-  credits: {fileID: 0}
+  credits: {fileID: 1260343572}
+  popup: {fileID: 842709121137544722}
+  black: {fileID: 2107189429}
   started: 0
 --- !u!4 &997451812
 Transform:
@@ -3027,8 +3041,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 130.2, y: -71}
-  m_SizeDelta: {x: 620.13434, y: 302.31326}
+  m_AnchoredPosition: {x: 130.2, y: -97.2}
+  m_SizeDelta: {x: 620.13434, y: 249.95981}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1260343574
 MonoBehaviour:
@@ -3832,6 +3846,81 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2025939967}
+  m_CullTransparentMesh: 0
+--- !u!1 &2107189429
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2107189430}
+  - component: {fileID: 2107189432}
+  - component: {fileID: 2107189431}
+  m_Layer: 5
+  m_Name: Image
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &2107189430
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2107189429}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 842709122422794887}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2107189431
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2107189429}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &2107189432
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2107189429}
   m_CullTransparentMesh: 0
 --- !u!224 &842709120770399144
 RectTransform:
@@ -4649,7 +4738,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 103, y: -39.873}
+  m_AnchoredPosition: {x: 102.00001, y: -70.000046}
   m_SizeDelta: {x: 118.56091, y: 35.582825}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &842709120923406453
@@ -5271,8 +5360,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -210, y: 187}
-  m_SizeDelta: {x: 463.82367, y: 160.37604}
+  m_AnchoredPosition: {x: -220, y: 187.1}
+  m_SizeDelta: {x: 463.82367, y: 213.88104}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &842709121137544727
 CanvasRenderer:
@@ -7858,7 +7947,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 842709121886805122}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 997451811}
+        m_TargetAssemblyTypeName: MainMenuManager, Assembly-CSharp
+        m_MethodName: Popup
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
 --- !u!114 &842709121886805122
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7906,7 +8007,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -72, y: -39.873}
+  m_AnchoredPosition: {x: -73, y: -70}
   m_SizeDelta: {x: 118.56091, y: 35.582825}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &842709121886805125
@@ -7984,7 +8085,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'This is only a demo version.
 
-    have fun!'
+    have fun! for better expirience, use
+    screen with resolution 1920x1080'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 12d67e7cb8189ee4bb1839fc3e550a1f, type: 2}
   m_sharedMaterial: {fileID: -5049326717500851294, guid: 12d67e7cb8189ee4bb1839fc3e550a1f, type: 2}
@@ -8729,6 +8831,7 @@ RectTransform:
   - {fileID: 367547612}
   - {fileID: 842709122825646230}
   - {fileID: 842709121316601853}
+  - {fileID: 2107189430}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

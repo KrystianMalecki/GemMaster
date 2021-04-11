@@ -19,6 +19,7 @@ public class FollowerMovement : MonoBehaviour
     float targetDistSqr => moveDir.sqrMagnitude;
     public float speeder;
     Vector3 realPosition;
+    public float distance=0.2f;
     public void Attach()
     {
         attachedToBAP = true;
@@ -68,10 +69,11 @@ public class FollowerMovement : MonoBehaviour
     {
         if (!attachedToBAP)
         {
-            if (targetDistSqr > 0.2f)
+            if (targetDistSqr > distance)
             {
-
-                transform.Translate(moveDir.normalized * moveSpeed * Time.deltaTime);
+               
+                transform.position = Vector2.LerpUnclamped(transform.position, targetPosition,(1f/ targetDistSqr) * moveSpeed * Time.deltaTime);
+              //  transform.Translate(moveDir.normalized * moveSpeed * Time.deltaTime*(Mathf.Clamp(targetDistSqr,0f, distance) *(1f/ distance)));
              //   realPosition += moveDir.normalized.ToVector3() * moveSpeed * Time.deltaTime;
                 // transform.localPosition = realPosition.AlignToPixel();
                 transform.localScale = new Vector3(playerScirpt.facingRight ? -1 : 1, 1, 1);
@@ -79,7 +81,7 @@ public class FollowerMovement : MonoBehaviour
             }
             if (moveToBAP)
             {
-                if (targetDistSqr < 0.2f)
+                if (targetDistSqr < distance)
                 {
                     targetBAP.Attach(this);
                 }
