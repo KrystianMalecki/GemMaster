@@ -107,6 +107,7 @@
     <Compile Include="Assets\PauseScreenUI.cs" />
     <Compile Include="Assets\GemSlot.cs" />
     <Compile Include="Assets\Scripts\CameraScript.cs" />
+    <Compile Include="Assets\MainMenuManager.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
