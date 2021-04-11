@@ -31,7 +31,7 @@ SpriteAtlas:
     variantMultiplier: 1
     packables:
     - {fileID: 102900000, guid: 97f2a14ae8597194c8df74ff0c6d2b4c, type: 3}
-    totalSpriteSurfaceArea: 34080
+    totalSpriteSurfaceArea: 38432
     bindAsDefault: 1
     isAtlasV2: 0
     cachedData: {fileID: 0}
@@ -60,6 +60,22 @@ SpriteAtlas:
   - {fileID: 7509860518518112746, guid: b275ad1413eaa654593cfb7afc47c260, type: 3}
   - {fileID: 6717470441782034276, guid: b275ad1413eaa654593cfb7afc47c260, type: 3}
   - {fileID: 8954718260495684846, guid: b275ad1413eaa654593cfb7afc47c260, type: 3}
+  - {fileID: -2609769501160543295, guid: 46a66e05a402b1142b81fe6307436e2d, type: 3}
+  - {fileID: 1798176310934747527, guid: 46a66e05a402b1142b81fe6307436e2d, type: 3}
+  - {fileID: -7453316322680407908, guid: 46a66e05a402b1142b81fe6307436e2d, type: 3}
+  - {fileID: -9033004229268278747, guid: 46a66e05a402b1142b81fe6307436e2d, type: 3}
+  - {fileID: 4522110187869585359, guid: 46a66e05a402b1142b81fe6307436e2d, type: 3}
+  - {fileID: 1619499924484319085, guid: 46a66e05a402b1142b81fe6307436e2d, type: 3}
+  - {fileID: 1317551704149024377, guid: 46a66e05a402b1142b81fe6307436e2d, type: 3}
+  - {fileID: -4231902954657728308, guid: 46a66e05a402b1142b81fe6307436e2d, type: 3}
+  - {fileID: 7980051161428454188, guid: 46a66e05a402b1142b81fe6307436e2d, type: 3}
+  - {fileID: -3441515435797462596, guid: 46a66e05a402b1142b81fe6307436e2d, type: 3}
+  - {fileID: 3038978511664642165, guid: 46a66e05a402b1142b81fe6307436e2d, type: 3}
+  - {fileID: 768367608597295313, guid: 46a66e05a402b1142b81fe6307436e2d, type: 3}
+  - {fileID: 6673312695985084743, guid: 46a66e05a402b1142b81fe6307436e2d, type: 3}
+  - {fileID: -7963212025696194793, guid: 46a66e05a402b1142b81fe6307436e2d, type: 3}
+  - {fileID: -2205451468145830947, guid: 46a66e05a402b1142b81fe6307436e2d, type: 3}
+  - {fileID: 3422446650199752384, guid: 46a66e05a402b1142b81fe6307436e2d, type: 3}
   - {fileID: 6545382614753218560, guid: 39b5fc565b520f944aaad79988ee13eb, type: 3}
   - {fileID: -2393253423863688536, guid: 39b5fc565b520f944aaad79988ee13eb, type: 3}
   - {fileID: 4493076713092915932, guid: 39b5fc565b520f944aaad79988ee13eb, type: 3}
@@ -134,6 +150,7 @@ SpriteAtlas:
   - {fileID: -7940130029484567739, guid: beefd81767c33fb4da197025c5e6f509, type: 3}
   - {fileID: -2882705785376774028, guid: beefd81767c33fb4da197025c5e6f509, type: 3}
   - {fileID: 3274010907247857649, guid: beefd81767c33fb4da197025c5e6f509, type: 3}
+  - {fileID: 21300000, guid: 4a84e9f888a451d49b68247b25f59205, type: 3}
   - {fileID: 2771832032555197376, guid: 8337660b50b3eec4ba124f800a84da7e, type: 3}
   - {fileID: 8980415328753738973, guid: 8337660b50b3eec4ba124f800a84da7e, type: 3}
   - {fileID: 616466274194406914, guid: 8337660b50b3eec4ba124f800a84da7e, type: 3}
@@ -178,6 +195,22 @@ SpriteAtlas:
   - torch_0
   - torch_1
   - torch_4
+  - lava_15
+  - lava_14
+  - lava_13
+  - lava_12
+  - lava_11
+  - lava_10
+  - lava_8
+  - lava_9
+  - lava_4
+  - lava_5
+  - lava_6
+  - lava_7
+  - lava_0
+  - lava_1
+  - lava_2
+  - lava_3
   - bush_0
   - bush_1
   - bush_2
@@ -252,6 +285,7 @@ SpriteAtlas:
   - super brick_35
   - super brick_45
   - super brick_34
+  - lavabase
   - particles_10
   - particles_11
   - particles_12

@@ -25,6 +25,7 @@ public class PlayerScript : Entity, IDamageable
 
     public float timeLeftToJump = 0;
     public float knockback;
+    public bool immunityFrames;
     [SerializeReference]
     public static InteractableObject closestInteractableObject;
     bool hackmode = false;
@@ -82,19 +83,25 @@ public class PlayerScript : Entity, IDamageable
         }
         else
         {
-            horizontalMove = 0;
-            if (Input.GetKey(SettingsManager.instance.GetKey(GameKey.Right)))
+            if (!immunityFrames)
             {
-                horizontalMove += 1;
-            }
-            if (Input.GetKey(SettingsManager.instance.GetKey(GameKey.Left)))
-            {
-                horizontalMove += -1;
 
-            }
 
-            ridgidBody2D.velocity = new Vector2(horizontalMove * speed , ridgidBody2D.velocity.y);
+                horizontalMove = 0;
+                if (Input.GetKey(SettingsManager.instance.GetKey(GameKey.Right)))
+                {
+                    horizontalMove += 1;
+                }
+                if (Input.GetKey(SettingsManager.instance.GetKey(GameKey.Left)))
+                {
+                    horizontalMove += -1;
+
+                }
+
+                ridgidBody2D.velocity = new Vector2(horizontalMove * speed, ridgidBody2D.velocity.y);
+            }
         }
+
 
         if (horizontalMove < 0 && facingRight)
         {
@@ -162,7 +169,9 @@ public class PlayerScript : Entity, IDamageable
     {
         base.TakeDamage(number, dir);
         StartCoroutine("inmunityFrames");
-        ridgidBody2D.AddForce((transform.position.ToVector2() - dir).normalized * knockback, ForceMode2D.Impulse);
+        //   ridgidBody2D.AddForce((transform.position.ToVector2() - dir).normalized * knockback, ForceMode2D.Impulse);
+        ridgidBody2D.AddForce((-ridgidBody2D.velocity.normalized + new Vector2(0, 0.5f)) * knockback, ForceMode2D.Impulse);
+
         hurtSound.pitch = Random.Range(0.8f, 1.2f);
         hurtSound.Play();
         /*make better knockback function
@@ -174,7 +183,9 @@ public class PlayerScript : Entity, IDamageable
     IEnumerable inmunityFrames()
     {
         playerCollider.enabled = false;
+        immunityFrames = true;
         yield return new WaitForSeconds(0.5f);
+        immunityFrames = false;
         playerCollider.enabled = true;
 
     }
@@ -208,8 +219,31 @@ public class PlayerScript : Entity, IDamageable
     }
     public override void Die()
     {
-        base.Die();
+        //   base.Die();
         Debug.Log("Player died.");
         hurtSound.Play();
+        switch (LevelManager.currentDir)
+        {
+            case DoorDir.Down:
+                {
+                    transform.position = LevelManager.currentLevel.upDoor.enterPosition.position;
+                    break;
+                }
+            case DoorDir.Up:
+                {
+                    transform.position = LevelManager.currentLevel.downDoor.enterPosition.position;
+                    break;
+                }
+            case DoorDir.Left:
+                {
+                    transform.position = LevelManager.currentLevel.rightDoor.enterPosition.position;
+                    break;
+                }
+            case DoorDir.Right:
+                {
+                    transform.position = LevelManager.currentLevel.leftDoor.enterPosition.position;
+                    break;
+                }
+        }
     }
 }

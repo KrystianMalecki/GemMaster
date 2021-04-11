@@ -18,9 +18,11 @@ public class DamageDealer : MonoBehaviour
     }
     public void OnCollisionEnter2D(Collision2D collision)
     {
-       // if (collision.otherCollider.isTrigger)
+        Debug.Log("a" + collision.gameObject.name);
+
+        // if (collision.otherCollider.isTrigger)
         {
-            OnTriggerEnter2D(collision.collider);
+            OnTriggerEnter2D(collision.otherCollider);
         }
     }
 }
