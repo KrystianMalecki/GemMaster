@@ -245,5 +245,7 @@ public class PlayerScript : Entity, IDamageable
                     break;
                 }
         }
+        currentHP = 0;
+        AddHP(maxHP);
     }
 }
