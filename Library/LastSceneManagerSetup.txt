@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/Scenes/GameScene.unity
+- path: "Assets/Scenes/GameScene \u2014 kopia \u2014 kopia.unity"
   isLoaded: 1
   isActive: 1
   isSubScene: 0
