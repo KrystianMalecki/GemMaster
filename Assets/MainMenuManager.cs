@@ -50,7 +50,7 @@ public class MainMenuManager : MonoBehaviour
             if (Input.inputString != string.Empty || Input.GetMouseButton(0) || Input.GetMouseButton(1) || Input.GetMouseButton(2))
             {
                 keyText.gameObject.SetActive(false);
-                menu.transform.DOLocalMoveY(0, 2f).SetEase(Ease.OutBounce);
+                menu.transform.DOLocalMoveY(35f, 2f).SetEase(Ease.OutBounce);
                 started = true;
             }
         }
