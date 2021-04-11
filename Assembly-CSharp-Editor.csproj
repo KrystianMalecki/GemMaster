@@ -57,6 +57,7 @@
   <ItemGroup>
     <Compile Include="Assets\PlayerPrefsEditor\Editor\Mac\Plist.cs" />
     <Compile Include="Assets\Editor\TranslationDrawer.cs" />
+    <Compile Include="Assets\Editor\Maker.cs" />
     <Compile Include="Assets\Editor\RandomTileMaker.cs" />
     <Compile Include="Assets\PlayerPrefsEditor\Editor\PlayerPrefsEditor.cs" />
   </ItemGroup>

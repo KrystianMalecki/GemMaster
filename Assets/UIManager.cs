@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
@@ -19,10 +20,14 @@ public class UIManager : MonoBehaviour
         }
         blurManager.ToggleBlur(false);
         gpuiManager.gameObject.SetActive(false);
+        darker.alpha = 0f;
+
+
     }
     public BlurManager blurManager;
     public GPUIManager gpuiManager;
     public PauseScreenUI psui;
+    public CanvasGroup darker;
 
     public void OpenProgrammingUI(GemLogicBlock glb)
     {

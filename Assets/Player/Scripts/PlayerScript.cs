@@ -219,9 +219,26 @@ public class PlayerScript : Entity, IDamageable
     }
     public override void Die()
     {
-        //   base.Die();
-        Debug.Log("Player died.");
-        hurtSound.Play();
+        StartCoroutine(death());
+    }
+    IEnumerator death()
+    {
+        deathSound.Play();
+        this.enabled = false;
+        ridgidBody2D.gravityScale = 0;
+        ridgidBody2D.velocity = Vector2.zero;
+        Time.timeScale = 0.1f;
+        playerCollider.enabled = false;
+        YieldInstruction yi = new WaitForSeconds(0.3f / 60f / 100f * 10f);
+
+
+        for (int i = 0; i < 101; i++)
+        {
+            UIManager.instance.darker.alpha = 1f * i / 100f;
+
+            yield return yi;
+        }
+        UIManager.instance.darker.alpha = 1f;
         switch (LevelManager.currentDir)
         {
             case DoorDir.Down:
@@ -245,7 +262,25 @@ public class PlayerScript : Entity, IDamageable
                     break;
                 }
         }
+        yi = new WaitForSeconds(0.3f / 60f / 100f);
+
+        Time.timeScale = 1f;
+        ridgidBody2D.velocity = Vector2.zero;
+        yield return new WaitForSeconds(2.5f);
+        for (int i = 0; i < 101; i++)
+        {
+
+            UIManager.instance.darker.alpha = 1f - 1f * i / 100f;
+            yield return yi;
+
+        }
+        UIManager.instance.darker.alpha = 0f;
+        playerCollider.enabled = true;
+        ridgidBody2D.gravityScale = 1;
+
+        this.enabled = true;
         currentHP = 0;
         AddHP(maxHP);
+
     }
 }

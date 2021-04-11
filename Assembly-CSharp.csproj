@@ -65,6 +65,7 @@
     <Compile Include="Assets\Objects\Scripts\MovableObject.cs" />
     <Compile Include="Assets\Trash\Heart ui\HeartDisplay.cs" />
     <Compile Include="Assets\Gem.cs" />
+    <Compile Include="Assets\Scripts\SoundPoint.cs" />
     <Compile Include="Assets\DialogueIO.cs" />
     <Compile Include="Assets\Save.cs" />
     <Compile Include="Assets\UIManager.cs" />
@@ -82,6 +83,7 @@
     <Compile Include="Assets\UI\UI Stuffs\Bars\BarAnimator.cs" />
     <Compile Include="Assets\Trash\Wire Logic\WireConnector.cs" />
     <Compile Include="Assets\BAP\BlockAccesPoint.cs" />
+    <Compile Include="Assets\MainMenuManager.cs" />
     <Compile Include="Assets\AnimatedGemSlot.cs" />
     <Compile Include="Assets\DataSlot.cs" />
     <Compile Include="Assets\SaveManager.cs" />
@@ -106,11 +108,8 @@
     <Compile Include="Assets\GemBox.cs" />
     <Compile Include="Assets\PauseScreenUI.cs" />
     <Compile Include="Assets\GemSlot.cs" />
-    <Compile Include="Assets\Scripts\CameraScript.cs" />
-    <Compile Include="Assets\MainMenuManager.cs" />
-    <Compile Include="Assets\Scripts\SoundPoint.cs" />
     <Compile Include="Assets\SettingUI.cs" />
-    <Compile Include="Assets\Scripts\Maker.cs" />
+    <Compile Include="Assets\Scripts\CameraScript.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
