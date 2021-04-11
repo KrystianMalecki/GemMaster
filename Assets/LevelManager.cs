@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-public enum LevelTag { none, tutorial, debug, debug2, templeout }
+public enum LevelTag { none, tutorial, debug, debug2, templeout, temple2,hubworld }
 
 public class LevelManager : MonoBehaviour
 {
@@ -112,6 +112,10 @@ public class LevelManager : MonoBehaviour
     {
         if (!debug)
         {
+            foreach (Level l in levels)
+            {
+                l.UnLoadLevel();
+            }
             LoadLevel(SaveManager.instance.currentSave.lastLvl, SaveManager.instance.currentSave.lastDir);
         }
         else
