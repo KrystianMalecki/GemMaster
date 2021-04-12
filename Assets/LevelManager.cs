@@ -47,7 +47,6 @@ public class LevelManager : MonoBehaviour
             {
                 PlayerPrefs.SetInt("Comic", 0);
                 b = true;
-
             }
         }
         if (newLeveltag == LevelTag.none)
@@ -65,36 +64,36 @@ public class LevelManager : MonoBehaviour
     {
         if (b)
         {
+            if (count == 0)
+            {
+                go1.SetActive(true);
+            }
+            else if (count == 1)
+            {
+                go2.SetActive(true);
+
+            }
+            else if (count == 2)
+            {
+                go3.SetActive(true);
+
+            }
+            else if (count == 3)
+            {
+                go4.SetActive(true);
+
+            }
+            else
+            {
+                go1.SetActive(false);
+                go2.SetActive(false);
+                go3.SetActive(false);
+                go4.SetActive(false);
+                b = false;
+            }
             if (Input.GetMouseButtonDown(0))
             {
-             
-                if (count == 0)
-                {
-                    go1.SetActive(true);
-                }
-                else if (count == 1)
-                {
-                    go2.SetActive(true);
 
-                }
-                else if (count == 2)
-                {
-                    go3.SetActive(true);
-
-                }
-                else if (count == 3)
-                {
-                    go4.SetActive(true);
-
-                }
-                else
-                {
-                    go1.SetActive(false);
-                    go2.SetActive(false);
-                    go3.SetActive(false);
-                    go4.SetActive(false);
-                    b = false;
-                }
                 count++;
             }
         }
