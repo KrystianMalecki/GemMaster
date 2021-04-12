@@ -4,10 +4,18 @@ using UnityEngine;
 
 public class GemLogicBlock : MonoBehaviour
 {
+  //  [HideInInspector]
     public List<GemBox> gemBoxes = new List<GemBox>();
     public List<LogicObject> objectsConnected = new List<LogicObject>();
+    public int slots;
 
-
+    public void Start()
+    {
+        for (int i = 0; i < slots; i++)
+        {
+            gemBoxes.Add(new GemBox(null, null, 0));
+        }
+    }
     public void Execute()
     {
         StartCoroutine(ExecutionLoop());
@@ -21,6 +29,15 @@ public class GemLogicBlock : MonoBehaviour
             bufferstater = 0;
             foreach (LogicObject lo in objectsConnected)
             {
+                int num = 0;
+                if (gemBoxes[i].numberGem != null)
+                {
+                    num = gemBoxes[i].numberGem.GetValue();
+                }
+                if (gemBoxes[i].functionGem == null)
+                {
+                    continue;
+                }
                 switch (gemBoxes[i].functionGem.executionType)
                 {
                     case GemExecutionType.Activate:
@@ -30,12 +47,12 @@ public class GemLogicBlock : MonoBehaviour
                         }
                     case GemExecutionType.Move:
                         {
-                            lo.Move(this, gemBoxes[i].numberGem.GetValue() * CodeHelper.CodeHelper.GetDir(gemBoxes[i].data));
+                            lo.Move(this, num * CodeHelper.CodeHelper.GetDir(gemBoxes[i].data));
                             break;
                         }
                     case GemExecutionType.Rotate:
                         {
-                            lo.Rotate(this, gemBoxes[i].numberGem.GetValue() * CodeHelper.CodeHelper.GetDir(gemBoxes[i].data));
+                            lo.Rotate(this, num * CodeHelper.CodeHelper.GetDir(gemBoxes[i].data));
 
                             break;
                         }
@@ -62,5 +79,5 @@ public class GemLogicBlock : MonoBehaviour
     {
         UIManager.instance.OpenProgrammingUI(this);
     }
-   
+
 }

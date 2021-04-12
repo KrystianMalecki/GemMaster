@@ -216,7 +216,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   functionSlot: {fileID: 7527441549040096825}
   numberSlot: {fileID: 1374529612255255774}
-  dataSlot: {fileID: 0}
+  dataSlot: {fileID: 5866444347830592245}
   referance:
     data: 0
     functionGem:
@@ -540,6 +540,8 @@ MonoBehaviour:
   gem: {fileID: 0}
   id: -1
   type: 0
+  isInventory: 0
+  slotBox: {fileID: 7527441548297431037}
   image: {fileID: 7527441548619277597}
   normal: {fileID: 21300000, guid: 3fea6f890b7a8e74da57dfdfe88464df, type: 3}
   moving: {fileID: 21300000, guid: 5e27e53ea4158304d9e2c82559b7f436, type: 3}
@@ -635,6 +637,8 @@ MonoBehaviour:
   gem: {fileID: 0}
   id: -1
   type: 1
+  isInventory: 0
+  slotBox: {fileID: 7527441548297431037}
   image: {fileID: 7527441549157422937}
   normal: {fileID: 21300000, guid: 2a767f927453c634bbbb52686dd7d030, type: 3}
   moving: {fileID: 21300000, guid: 6c7d6a80aa0ffe943b5f20a24bf51b95, type: 3}

@@ -10,6 +10,7 @@ public class AnimatedGemSlot : GemSlot
     public Sprite moving;
     public Sprite locked;
 
+
     YieldInstruction yi = new WaitForSeconds(0.25f);
     public void Start()
     {
@@ -64,6 +65,7 @@ public class AnimatedGemSlot : GemSlot
     {
         base.RemoveGem();
         image.sprite = normal;
-
+       
     }
+
 }

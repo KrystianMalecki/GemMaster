@@ -22,7 +22,8 @@ public class SaveManager : MonoBehaviour
         {
             instance = this;
         }
-        if (!PlayerPrefs.HasKey("notFirstBoot"))
+        if ((!PlayerPrefs.HasKey("notFirstBoot"))||(!File.Exists(Application.persistentDataPath
+                     + "/Save-" + saveName + ".dat")))
         {
             PlayerPrefs.SetString("notFirstBoot", "true");
             SaveData(defaultSave, saveName);
@@ -104,6 +105,8 @@ public class SaveManager : MonoBehaviour
 
         currentSave.maxHP = player.maxHP;
         currentSave.currentHP = player.currentHP;
+
+        currentSave.gems = GemManager.instance.collectedGems;
 
         currentSave.musicVolume = SettingsManager.instance.musicVolume;
         currentSave.sfxVolume = SettingsManager.instance.sfxVolume;

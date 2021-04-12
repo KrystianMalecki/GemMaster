@@ -48,6 +48,10 @@ public class PlayerScript : Entity, IDamageable
         base.Start();
         heartdisplay.UpdateHP(currentHP, maxHP);
         bob(true);
+        ridgidBody2D.velocity = Vector2.zero;
+
+        playerCollider.enabled = facingRight;
+        ridgidBody2D.gravityScale = 0;
     }
     public void bob(bool b)
     {
@@ -71,11 +75,11 @@ public class PlayerScript : Entity, IDamageable
         //  horizontalMove = Input.GetAxisRaw("Horizontal");
         if (hackmode)
         {
-            if ((SettingsManager.instance.IsKeyPressed(GameKey.Right)))
+            if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
             {
                 transform.Translate(speed * Time.deltaTime * Vector3.right * 5);
             }
-            if ((SettingsManager.instance.IsKeyPressed(GameKey.Left)))
+            if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
             {
                 transform.Translate(speed * Time.deltaTime * Vector3.left * 5);
 
@@ -88,11 +92,11 @@ public class PlayerScript : Entity, IDamageable
 
 
                 horizontalMove = 0;
-                if ((SettingsManager.instance.IsKeyPressed(GameKey.Right)))
+                if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
                 {
                     horizontalMove += 1;
                 }
-                if ((SettingsManager.instance.IsKeyPressed(GameKey.Left)))
+                if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
                 {
                     horizontalMove += -1;
 
@@ -120,11 +124,11 @@ public class PlayerScript : Entity, IDamageable
     {
         if (hackmode)
         {
-            if ((SettingsManager.instance.IsKeyPressed(GameKey.Jump)))
+            if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.UpArrow))
             {
                 transform.Translate(speed * Time.deltaTime * Vector3.up * 5);
             }
-            if ((SettingsManager.instance.IsKeyPressed(GameKey.Down)))
+            if (Input.GetKey(KeyCode.S))
             {
                 transform.Translate(speed * Time.deltaTime * Vector3.down * 5);
 
@@ -140,7 +144,7 @@ public class PlayerScript : Entity, IDamageable
 
             animator.SetBool("running", Mathf.Abs(ridgidBody2D.velocity.x) > 0.2);
 
-            if ((SettingsManager.instance.IsKeyPressed(GameKey.Jump)) && timeLeftToJump <= 0)
+            if ((Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.UpArrow)) && timeLeftToJump <= 0)
             {
                 if (IsGrounded())
                 {
@@ -210,6 +214,20 @@ public class PlayerScript : Entity, IDamageable
             }
             //}
         }
+    }
+    public void starter()
+    {
+        ridgidBody2D.velocity = Vector2.zero;
+
+        playerCollider.enabled = true;
+        ridgidBody2D.gravityScale = 1;
+        enabled = true;
+
+    }
+    public IEnumerator e()
+    {
+        yield return new WaitForSeconds(1f);
+        starter();
     }
     public override void AddHP(int number)
     {

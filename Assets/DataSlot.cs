@@ -14,7 +14,7 @@ public class DataSlot : MonoBehaviour
         slotBox.Save();
         switch (slotBox.referance.functionGem.executionType)
         {
-            case GemExecutionType.Activate:
+            case GemExecutionType.Toggle:
                 {
                     slotBox.referance.data %= 2;
                     break;
@@ -35,9 +35,13 @@ public class DataSlot : MonoBehaviour
     public void SetData()
     {
         slotBox.Save();
+        if (slotBox.referance.functionGem == null)
+        {
+            return;
+        }
         switch (slotBox.referance.functionGem.executionType)
         {
-            case GemExecutionType.Activate:
+            case GemExecutionType.Toggle:
                 {
                     switch (slotBox.referance.data)
                     {

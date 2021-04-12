@@ -9,6 +9,8 @@ public class GemSlot : MonoBehaviour, IDropHandler
     public UIGem gem;
     public int id = -1;
     public GemType type;
+    public bool isInventory = false;
+    public SlotBox slotBox;
     public virtual void Hide()
     {
         gameObject.SetActive(false);
@@ -41,6 +43,14 @@ public class GemSlot : MonoBehaviour, IDropHandler
             {
                 //it is all ok!
             }
+        }
+        else
+        {
+            if (gem != null)
+            {
+                Destroy(gem.gameObject);
+            }
+            gem = null;
         }
     }
     public virtual void Setup(UIGem uig)
@@ -78,6 +88,7 @@ public class GemSlot : MonoBehaviour, IDropHandler
         gem = UIGem.selected;
         UIGem.selected.startSlot.RemoveGem();
         UIGem.selected.AddToSlot(this);
+        slotBox?.dataSlot.SetData();
     }
     public virtual void ReturnGem()
     {
@@ -86,6 +97,12 @@ public class GemSlot : MonoBehaviour, IDropHandler
     }
     public virtual void RemoveGem()
     {
+        if (isInventory)
+        {
+            GemManager.instance.collectedGems.Remove(gem.gem);
+            Hide();
+        }
         gem = null;
+
     }
 }

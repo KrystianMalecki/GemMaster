@@ -13,6 +13,7 @@ public class SlotBox : MonoBehaviour
     {
         gameObject.SetActive(true);
         this.id = id;
+        Debug.Log(gemBox.functionGem);
         functionSlot.Setup(gemBox.functionGem);
         numberSlot.Setup(gemBox.numberGem);
         dataSlot.SetData();
@@ -23,10 +24,24 @@ public class SlotBox : MonoBehaviour
         gameObject.SetActive(false);
 
     }
-    public void Save() {
-        referance.numberGem= numberSlot.gem.gem;
-        referance.functionGem = functionSlot.gem.gem;
-
+    public void Save()
+    {
+        if (numberSlot.gem == null)
+        {
+            referance.numberGem = null;
+        }
+        else
+        {
+            referance.numberGem = numberSlot.gem.gem;
+        }
+        if (functionSlot.gem == null)
+        {
+            referance.functionGem = null;
+        }
+        else
+        {
+            referance.functionGem = functionSlot?.gem.gem;
+        }
     }
 
 }

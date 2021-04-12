@@ -53,11 +53,12 @@ public class GemInventoryUI : MonoBehaviour
         {
             GameObject go = Instantiate(prefab, tr);
             GemSlot gems = go.GetComponent<GemSlot>();
+            gems.isInventory = true;
             gems.Setup(list[i], i);
             slots.Add(gems);
         }
     }
-    public void Start()
+    public void OnEnable()
     {
         SetupGems();
         isOpen = true;

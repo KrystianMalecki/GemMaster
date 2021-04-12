@@ -9,6 +9,9 @@ public class Save
     public LevelTag lastLvl = LevelTag.debug;
     public DoorDir lastDir;
 
+    [SerializeField]
+    public List<Gem> gems = new List<Gem>();
+
     public int currentHP;
     public int maxHP;
 

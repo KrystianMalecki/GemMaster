@@ -17,15 +17,16 @@ public class GemManager : MonoBehaviour
         {
             instance = this;
             DontDestroyOnLoad(gameObject);
-
         }
+        collectedGems = SaveManager.instance.currentSave.gems;
+
     }
     [Foldout("Prefabs")] public GameObject uiGemSlotPrefab;
     [Foldout("Prefabs")] public GameObject uiGemPrefab;
     public List<Gem> collectedGems = new List<Gem>();
     public List<Color> variableColors = new List<Color>();
 
-    [Foldout("Gem textures")] public List<Sprite> numberGemT= new List<Sprite>();
+    [Foldout("Gem textures")] public List<Sprite> numberGemT = new List<Sprite>();
     [Foldout("Gem textures")] public Sprite moveGemT;
     [Foldout("Gem textures")] public Sprite toggleGemT;
     [Foldout("Gem textures")] public Sprite activateGemT;
@@ -58,9 +59,10 @@ public class GemManager : MonoBehaviour
                 default:
                     return null;
             }
-        }else if(gem.type == GemType.NumberGem)
+        }
+        else if (gem.type == GemType.NumberGem)
         {
-            int index=gem.value;
+            int index = gem.value;
             if (index < 0)
             {
                 index = 0;
@@ -68,7 +70,7 @@ public class GemManager : MonoBehaviour
             }
             if (index > numberGemT.Count)
             {
-                index = numberGemT.Count-1;
+                index = numberGemT.Count - 1;
                 Debug.LogWarning("Not enough textures!");
             }
             return numberGemT[index];
