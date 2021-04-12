@@ -40,6 +40,11 @@ public class UIManager : MonoBehaviour
         blurManager.ToggleBlur(false);
         psui.Hide();
     }
+    public void h()
+    {
+        HidePUI();
+        psui.Hide();
+    }
 
     public void Update()
     {
@@ -49,8 +54,7 @@ public class UIManager : MonoBehaviour
         }
         if ((SettingsManager.instance.IsKeyPressedDown(GameKey.CloseWindow)))
         {
-            HidePUI();
-            psui.Hide();
+            h();
 
         }
     }

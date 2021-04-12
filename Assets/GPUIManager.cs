@@ -61,6 +61,13 @@ public class GPUIManager : MonoBehaviour
     }
     public void Hide()
     {
+        gemLogicBlock.gemBoxes.Clear();
+
+        for (int i = 0; i < slotboxes.Count; i++)
+        {
+            slotboxes[i].Save();
+            gemLogicBlock.gemBoxes.Add(slotboxes[i].referance);
+        }
         gameObject.SetActive(false);
 
     }

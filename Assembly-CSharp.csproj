@@ -110,6 +110,7 @@
     <Compile Include="Assets\GemSlot.cs" />
     <Compile Include="Assets\SettingUI.cs" />
     <Compile Include="Assets\Scripts\CameraScript.cs" />
+    <Compile Include="Assets\AddToBackpack.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

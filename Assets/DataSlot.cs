@@ -1,18 +1,96 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class DataSlot : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public SlotBox slotBox;
+    public Image button;
+    public void ChangeData()
     {
-        
+        //  slotBox.++;
+        slotBox.referance.data++;
+        slotBox.Save();
+        switch (slotBox.referance.functionGem.executionType)
+        {
+            case GemExecutionType.Activate:
+                {
+                    slotBox.referance.data %= 2;
+                    break;
+                }
+            case GemExecutionType.Move:
+                {
+                    slotBox.referance.data %= 4;
+                    break;
+                }
+            case GemExecutionType.Rotate:
+                {
+                    slotBox.referance.data %= 4;
+                    break;
+                }
+        }
+        SetData();
     }
-
-    // Update is called once per frame
-    void Update()
+    public void SetData()
     {
-        
+        slotBox.Save();
+        switch (slotBox.referance.functionGem.executionType)
+        {
+            case GemExecutionType.Activate:
+                {
+                    switch (slotBox.referance.data)
+                    {
+                        case 0:
+                            {
+                                button.sprite = GPUIManager.instance.dataOff;
+                                break;
+                            }
+                        case 1:
+                            {
+                                button.sprite = GPUIManager.instance.dataOn;
+
+                                break;
+                            }
+                    }
+                    break;
+                }
+            case GemExecutionType.Move:
+                {
+                    switch (slotBox.referance.data)
+                    {
+                        case 0:
+                            {
+                                button.sprite = GPUIManager.instance.dataUp;
+
+                                break;
+                            }
+                        case 1:
+                            {
+                                button.sprite = GPUIManager.instance.dataRight;
+
+                                break;
+                            }
+                        case 2:
+                            {
+                                button.sprite = GPUIManager.instance.dataDown;
+
+                                break;
+                            }
+                        case 3:
+                            {
+                                button.sprite = GPUIManager.instance.dataLeft;
+
+                                break;
+                            }
+                    }
+                    break;
+                }
+            case GemExecutionType.Rotate:
+                {
+                    slotBox.referance.data %= 4;
+                    break;
+                }
+        }
     }
 }

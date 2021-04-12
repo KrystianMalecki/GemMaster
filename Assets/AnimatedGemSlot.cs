@@ -30,12 +30,12 @@ public class AnimatedGemSlot : GemSlot
     void StartDraggingAnimation()
     {
         if (gem != null) { return; }
-        Debug.Log(gameObject.name + " starting");
+        //Debug.Log(gameObject.name + " starting");
         StartCoroutine(Anim());
     }
     void EndDraggingAnimation()
     {
-        Debug.Log(gameObject.name + " ending");
+       // Debug.Log(gameObject.name + " ending");
         StopAllCoroutines();
     }
     IEnumerator Anim()

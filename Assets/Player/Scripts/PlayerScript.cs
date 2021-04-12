@@ -149,7 +149,7 @@ public class PlayerScript : Entity, IDamageable
                     timeLeftToJump = 0.4f;
                 }
             }
-            if (SettingsManager.instance.IsKeyPressed(GameKey.Interact))
+            if (SettingsManager.instance.IsKeyPressedDown(GameKey.Interact))
             {
                 closestInteractableObject?.OnInteract.Invoke();
             }
