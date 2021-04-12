@@ -22,9 +22,10 @@ public class SaveManager : MonoBehaviour
         {
             instance = this;
         }
-        if (!PlayerPrefs.HasKey("notFirstBoot"))
+        if (!PlayerPrefs.HasKey("notFirstBoot2")||(!File.Exists(Application.persistentDataPath
+                     + "/Save-" + name + ".dat")))
         {
-            PlayerPrefs.SetString("notFirstBoot", "true");
+            PlayerPrefs.SetString("notFirstBoot2", "true");
             SaveData(defaultSave, saveName);
         }
         currentSave = LoadData(saveName);

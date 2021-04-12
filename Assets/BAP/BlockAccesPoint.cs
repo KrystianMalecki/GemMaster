@@ -33,11 +33,11 @@ public class BlockAccesPoint : MonoBehaviour
     
     public void Start()
     {
-        LevelManager.instance.LevelChange.AddListener(Deattach);
+     //   LevelManager.instance.LevelChange.AddListener(Deattach);
     }
     public void OnDisable()
     {
-        LevelManager.instance.LevelChange.RemoveListener(Deattach);
+    //    LevelManager.instance.LevelChange.RemoveListener(Deattach);
 
     }
     public void Execute()
@@ -70,7 +70,7 @@ public class BlockAccesPoint : MonoBehaviour
             }
         }
     }
-    IEnumerator deattach()
+    public IEnumerator deattach()
     {
         //   animator.Play("Deattach");
         isAttached = false;

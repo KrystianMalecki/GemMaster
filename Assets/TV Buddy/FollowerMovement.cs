@@ -27,6 +27,8 @@ public class FollowerMovement : MonoBehaviour
     }
     public void Deattach()
     {
+        targetBAP = null;
+        moveToBAP = false;
         img.gameObject.SetActive(true);
         attachedToBAP = false;
 

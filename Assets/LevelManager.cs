@@ -53,6 +53,8 @@ public class LevelManager : MonoBehaviour
     IEnumerator mid(LevelTag newLeveltag, DoorDir from)
     {
         yield return new WaitForSeconds(0.5f);
+        follower.targetBAP?.deattach();
+        follower.Deattach();
         currentLevel?.UnLoadLevel();
         Level newLevel = levels.Find(x => x.levelData.tagName == newLeveltag);
         if (newLevel == null)
@@ -108,7 +110,7 @@ public class LevelManager : MonoBehaviour
                     break;
                 }
         }
-
+       
         player.ridgidBody2D.velocity = vel;
         currentLevel = newLevel;
         LevelChange.Invoke();
