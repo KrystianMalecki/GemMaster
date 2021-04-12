@@ -31,9 +31,25 @@ public class LevelManager : MonoBehaviour
     public BlurManager blur;
 
     public UnityEvent LevelChange = new UnityEvent();
+    public GameObject go1;
+    public GameObject go2;
+    public GameObject go3;
+    public GameObject go4;
+    int count = 0;
+    bool b = false;
 
     public void LoadLevel(LevelTag newLeveltag, DoorDir from)
     {
+
+        if (newLeveltag == LevelTag.tutorial)
+        {
+            if (!PlayerPrefs.HasKey("Comic"))
+            {
+                PlayerPrefs.SetInt("Comic", 0);
+                b = true;
+
+            }
+        }
         if (newLeveltag == LevelTag.none)
         {
             Debug.LogError("CAn't find level with tag " + newLeveltag.ToString());
@@ -44,6 +60,44 @@ public class LevelManager : MonoBehaviour
         StartCoroutine(mid(newLeveltag, from));
         currentDir = from;
 
+    }
+    public void Update()
+    {
+        if (b)
+        {
+            if (Input.GetMouseButtonDown(0))
+            {
+             
+                if (count == 0)
+                {
+                    go1.SetActive(true);
+                }
+                else if (count == 1)
+                {
+                    go2.SetActive(true);
+
+                }
+                else if (count == 2)
+                {
+                    go3.SetActive(true);
+
+                }
+                else if (count == 3)
+                {
+                    go4.SetActive(true);
+
+                }
+                else
+                {
+                    go1.SetActive(false);
+                    go2.SetActive(false);
+                    go3.SetActive(false);
+                    go4.SetActive(false);
+                    b = false;
+                }
+                count++;
+            }
+        }
     }
     IEnumerator end()
     {
@@ -110,7 +164,7 @@ public class LevelManager : MonoBehaviour
                     break;
                 }
         }
-       
+
         player.ridgidBody2D.velocity = vel;
         currentLevel = newLevel;
         LevelChange.Invoke();
@@ -119,6 +173,10 @@ public class LevelManager : MonoBehaviour
     }
     public void Start()
     {
+        go1.SetActive(false);
+        go2.SetActive(false);
+        go3.SetActive(false);
+        go4.SetActive(false);
         if (!debug)
         {
             foreach (Level l in levels)
@@ -131,8 +189,6 @@ public class LevelManager : MonoBehaviour
         else
         {
             player.StartCoroutine(player.e());
-
-
         }
     }
 }
