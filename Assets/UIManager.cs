@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
@@ -45,7 +46,10 @@ public class UIManager : MonoBehaviour
         HidePUI();
         psui.Hide();
     }
-
+    public void Quit()
+    {
+        SceneManager.LoadScene(0);
+    }
     public void Update()
     {
         if ((SettingsManager.instance.IsKeyPressedDown(GameKey.Menu)))

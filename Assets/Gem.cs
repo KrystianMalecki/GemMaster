@@ -7,6 +7,7 @@ public enum GemExecutionType { Move, Rotate, Toggle, Activate, Function }
 [System.Serializable]
 public class Gem
 {
+    [System.NonSerialized]
     private Sprite image;
     public GemType type;
     [AllowNesting]
@@ -41,5 +42,9 @@ public class Gem
         {
             image = value;
         }
+    }
+    public override string ToString()
+    {
+        return type.ToString() + " " + executionType.ToString() + " " + value.ToString();
     }
 }

@@ -30,6 +30,16 @@ public class BlockAccesPoint : MonoBehaviour
         isAttached = true;
 
     }
+    
+    public void Start()
+    {
+        LevelManager.instance.LevelChange.AddListener(Deattach);
+    }
+    public void OnDisable()
+    {
+        LevelManager.instance.LevelChange.RemoveListener(Deattach);
+
+    }
     public void Execute()
     {
         OnExecute.Invoke();

@@ -46,7 +46,7 @@ public class GPUIManager : MonoBehaviour
     public Sprite dataOff;
 
 
-
+    public bool open;
 
     public void Start()
     {
@@ -58,9 +58,16 @@ public class GPUIManager : MonoBehaviour
         gameObject.SetActive(true);
         gemLogicBlock = glb;
         LoadGems();
+        open = true;
     }
     public void Hide()
     {
+        open = false;
+
+        if (gemLogicBlock == null)
+        {
+            return;
+        }
         gemLogicBlock.gemBoxes.Clear();
 
         for (int i = 0; i < slotboxes.Count; i++)

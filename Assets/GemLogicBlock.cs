@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GemLogicBlock : MonoBehaviour
 {
-  //  [HideInInspector]
+    //  [HideInInspector]
     public List<GemBox> gemBoxes = new List<GemBox>();
     public List<LogicObject> objectsConnected = new List<LogicObject>();
     public int slots;
@@ -77,7 +77,11 @@ public class GemLogicBlock : MonoBehaviour
     }
     public void Edit()
     {
-        UIManager.instance.OpenProgrammingUI(this);
+        if (!UIManager.instance.gpuiManager.open)
+        {
+            UIManager.instance.OpenProgrammingUI(this);
+        }
+
     }
 
 }

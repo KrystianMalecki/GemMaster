@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
+
 public enum LevelTag { none, tutorial, debug, debug2, templeout, temple2, hubworld, end }
 
 public class LevelManager : MonoBehaviour
@@ -27,6 +29,9 @@ public class LevelManager : MonoBehaviour
     public static DoorDir currentDir;
 
     public BlurManager blur;
+
+    public UnityEvent LevelChange = new UnityEvent();
+
     public void LoadLevel(LevelTag newLeveltag, DoorDir from)
     {
         if (newLeveltag == LevelTag.none)
@@ -106,6 +111,8 @@ public class LevelManager : MonoBehaviour
 
         player.ridgidBody2D.velocity = vel;
         currentLevel = newLevel;
+        LevelChange.Invoke();
+
         StartCoroutine(end());
     }
     public void Start()

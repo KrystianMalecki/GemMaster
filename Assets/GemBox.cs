@@ -14,4 +14,8 @@ public class GemBox
         functionGem = fg;
         data = d;
     }
+    public override string ToString()
+    {
+        return "data " + data + " \n fun" + functionGem?.ToString() + " \n num" + numberGem?.ToString();
+    }
 }

@@ -22,8 +22,7 @@ public class SaveManager : MonoBehaviour
         {
             instance = this;
         }
-        if ((!PlayerPrefs.HasKey("notFirstBoot"))||(!File.Exists(Application.persistentDataPath
-                     + "/Save-" + saveName + ".dat")))
+        if (!PlayerPrefs.HasKey("notFirstBoot"))
         {
             PlayerPrefs.SetString("notFirstBoot", "true");
             SaveData(defaultSave, saveName);
@@ -82,6 +81,7 @@ public class SaveManager : MonoBehaviour
                 Debug.LogError("Can't find level with tag: " + ld.tagName.ToString());
             }
             l.levelData = ld;
+         //   ld.glbdatas.ForEach(x => x.gemBoxes.ForEach(y => Debug.Log(y.numberGem.type.ToString())));
         }
         player.maxHP = currentSave.maxHP;
         player.currentHP = 0;
@@ -100,8 +100,8 @@ public class SaveManager : MonoBehaviour
             l.SaveData();
             currentSave.levelDatas.Add(l.levelData);
         }
-        // currentSave.lastLvl = LevelManager.currentLevel.levelData.tagName;
-        // currentSave.lastDir = LevelManager.currentDir;
+        currentSave.lastLvl = LevelManager.currentLevel.levelData.tagName;
+        currentSave.lastDir = LevelManager.currentDir;
 
         currentSave.maxHP = player.maxHP;
         currentSave.currentHP = player.currentHP;

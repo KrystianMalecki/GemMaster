@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using NaughtyAttributes;
+using UnityEngine.Events;
+
 public class Level : MonoBehaviour
 {
     public List<int> variables = new List<int>();
@@ -32,6 +34,7 @@ public class Level : MonoBehaviour
     [Foldout("Right")] public LevelTag rightDirection;
 
     public EndManager em;
+
     public void Awake()
     {
         for (int i = 0; i < pickups.Count; i++)
@@ -53,15 +56,18 @@ public class Level : MonoBehaviour
     }
     public void LoadLevel()
     {
+
         gameObject.SetActive(true);
         LogicManager.instance.variables = variables;
         for (int i = 0; i < levelData.pickupIds.Count; i++)
         {
             pickups[levelData.pickupIds[i]].gameObject.SetActive(false);
         }
-        for (int i = 0; i < GLBs.Count; i++)
+        for (int i = 0; i < levelData.glbdatas.Count; i++)
         {
+
             GLBs[i].gemBoxes = levelData.glbdatas[i].gemBoxes;
+            GLBs[i].gemBoxes.ForEach(x => Debug.Log(x.ToString()));
         }
         em?.Count();
     }
@@ -74,9 +80,12 @@ public class Level : MonoBehaviour
     }
     public void SaveData()
     {
+        levelData.glbdatas.Clear();
         for (int i = 0; i < GLBs.Count; i++)
         {
-            levelData.glbdatas[i].gemBoxes = GLBs[i].gemBoxes;
+           // GLBs[i].gemBoxes.ForEach(x => Debug.LogError(x.ToString()));
+            levelData.glbdatas.Add(new GLBData(GLBs[i].gemBoxes));
+
         }
     }
     public void Pickuped(int id)

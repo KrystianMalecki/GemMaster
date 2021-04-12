@@ -112,6 +112,7 @@
     <Compile Include="Assets\SettingUI.cs" />
     <Compile Include="Assets\Scripts\CameraScript.cs" />
     <Compile Include="Assets\EndManager.cs" />
+    <Compile Include="Assets\MusicManager.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

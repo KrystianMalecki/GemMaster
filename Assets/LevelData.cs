@@ -13,4 +13,12 @@ public class LevelData
 public class GLBData
 {
     public List<GemBox> gemBoxes = new List<GemBox>();
+    public GLBData(List<GemBox> gb)
+    {
+        gemBoxes = gb;
+    }
+    public override string ToString()
+    {
+        return base.ToString();
+    }
 }

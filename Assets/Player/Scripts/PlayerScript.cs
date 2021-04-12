@@ -22,7 +22,7 @@ public class PlayerScript : Entity, IDamageable
     [Foldout("Static Data")] public HeartDisplay heartdisplay;
     [Foldout("Static Data")] public AudioSource deathSound;
     [Foldout("Static Data")] public AudioSource hurtSound;
-
+    [Foldout("Static Data")] public FollowerMovement fm;
     public float timeLeftToJump = 0;
     public float knockback;
     public bool immunityFrames;
@@ -222,7 +222,7 @@ public class PlayerScript : Entity, IDamageable
         playerCollider.enabled = true;
         ridgidBody2D.gravityScale = 1;
         enabled = true;
-
+        fm.transform.position = transform.position;
     }
     public IEnumerator e()
     {
@@ -245,9 +245,9 @@ public class PlayerScript : Entity, IDamageable
         this.enabled = false;
         ridgidBody2D.gravityScale = 0;
         ridgidBody2D.velocity = Vector2.zero;
-        Time.timeScale = 0.1f;
+      //  Time.timeScale = 0.1f;
         playerCollider.enabled = false;
-        YieldInstruction yi = new WaitForSeconds(0.3f / 60f / 100f * 10f);
+        YieldInstruction yi = new WaitForSeconds(0.3f / 60f / 100f);
 
 
         for (int i = 0; i < 101; i++)
@@ -282,7 +282,7 @@ public class PlayerScript : Entity, IDamageable
         }
         yi = new WaitForSeconds(0.3f / 60f / 100f);
 
-        Time.timeScale = 1f;
+       // Time.timeScale = 1f;
         ridgidBody2D.velocity = Vector2.zero;
         yield return new WaitForSeconds(2.5f);
         for (int i = 0; i < 101; i++)
@@ -295,6 +295,7 @@ public class PlayerScript : Entity, IDamageable
         UIManager.instance.darker.alpha = 0f;
         playerCollider.enabled = true;
         ridgidBody2D.gravityScale = 1;
+        fm.transform.position = transform.position;
 
         this.enabled = true;
         currentHP = 0;
