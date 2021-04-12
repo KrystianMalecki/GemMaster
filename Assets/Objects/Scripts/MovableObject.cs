@@ -10,7 +10,7 @@ public class MovableObject : LogicObject
     public override void Move(GemLogicBlock glb, Vector2 dir)
     {
 
-        transform.DOLocalMove(transform.position + dir.ToVector3(), 1).OnComplete(glb.HalfMTTNS);
+        transform.DOLocalMove(transform.localPosition + dir.ToVector3(), 1).OnComplete(glb.HalfMTTNS);
 
     }
 }

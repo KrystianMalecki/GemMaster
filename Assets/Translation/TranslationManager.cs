@@ -16,7 +16,6 @@ public class TranslationManager : MonoBehaviour
         else
         {
             instance = this;
-            DontDestroyOnLoad(gameObject);
 
         }
 

@@ -20,7 +20,6 @@ public class SettingsManager : MonoBehaviour
         else
         {
             instance = this;
-            DontDestroyOnLoad(gameObject);
 
         }
         musicVolume = SaveManager.instance.currentSave.musicVolume;

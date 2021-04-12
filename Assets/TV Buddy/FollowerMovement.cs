@@ -72,8 +72,8 @@ public class FollowerMovement : MonoBehaviour
             if (targetDistSqr > distance)
             {
                
-                transform.position = Vector2.LerpUnclamped(transform.position, targetPosition,(1f/ targetDistSqr) * moveSpeed * Time.deltaTime);
-              //  transform.Translate(moveDir.normalized * moveSpeed * Time.deltaTime*(Mathf.Clamp(targetDistSqr,0f, distance) *(1f/ distance)));
+               // transform.position = Vector2.LerpUnclamped(transform.position, targetPosition,(1f/ targetDistSqr) * moveSpeed * Time.deltaTime);
+                transform.Translate(moveDir.normalized * moveSpeed * Time.deltaTime);
              //   realPosition += moveDir.normalized.ToVector3() * moveSpeed * Time.deltaTime;
                 // transform.localPosition = realPosition.AlignToPixel();
                 transform.localScale = new Vector3(playerScirpt.facingRight ? -1 : 1, 1, 1);

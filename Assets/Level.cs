@@ -31,6 +31,7 @@ public class Level : MonoBehaviour
     [Foldout("Right")] public Door rightDoor;
     [Foldout("Right")] public LevelTag rightDirection;
 
+    public EndManager em;
     public void Awake()
     {
         for (int i = 0; i < pickups.Count; i++)
@@ -62,6 +63,7 @@ public class Level : MonoBehaviour
         {
             GLBs[i].gemBoxes = levelData.glbdatas[i].gemBoxes;
         }
+        em?.Count();
     }
     public void UnLoadLevel()
     {

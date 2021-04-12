@@ -38,10 +38,10 @@ public class PickupObject : MonoBehaviour
     protected void up()
     {
 
-        transform.DOLocalMoveY(transform.position.y + 0.2f, 2f).OnComplete(down);
+        transform.DOLocalMoveY(transform.localPosition.y + 0.2f, 2f).OnComplete(down);
     }
     protected void down()
     {
-        transform.DOLocalMoveY(transform.position.y - 0.2f, 2f).OnComplete(up);
+        transform.DOLocalMoveY(transform.localPosition.y - 0.2f, 2f).OnComplete(up);
     }
 }

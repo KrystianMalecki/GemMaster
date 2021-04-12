@@ -15,4 +15,17 @@ public class AddToBackpack : AnimatedGemSlot
         giui.SetupGems();
         giui.t(a);
     }
+    public override bool CheckIfCanPlace(UIGem uigem)
+    {
+        if (uigem != null)
+        {
+            if (gem == null)
+            {
+                return true;
+
+
+            }
+        }
+        return false;
+    }
 }

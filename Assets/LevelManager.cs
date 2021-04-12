@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-public enum LevelTag { none, tutorial, debug, debug2, templeout, temple2, hubworld }
+public enum LevelTag { none, tutorial, debug, debug2, templeout, temple2, hubworld, end }
 
 public class LevelManager : MonoBehaviour
 {

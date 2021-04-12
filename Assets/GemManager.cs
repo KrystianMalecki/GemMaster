@@ -15,9 +15,7 @@ public class GemManager : MonoBehaviour
         }
         else
         {
-            instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
+            instance = this;       }
         collectedGems = SaveManager.instance.currentSave.gems;
 
     }

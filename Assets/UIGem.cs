@@ -13,14 +13,17 @@ public class UIGem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHan
     public GemSlot startSlot;
     public CanvasGroup cg;
 
-
+    public RectTransform rt;
     public void Setup(Gem gem, GemSlot slot)
     {
 
         icon.sprite = gem.icon;
         this.gem = gem;
         startSlot = slot;
-
+        if (gem.type == GemType.NumberGem)
+        {
+            rt.sizeDelta = new Vector2(51, 51);
+        }
         GoBackToPlace(startSlot.transform);
     }
     public void OnBeginDrag(PointerEventData eventData)

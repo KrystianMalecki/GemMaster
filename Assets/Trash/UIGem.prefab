@@ -95,6 +95,7 @@ MonoBehaviour:
   isMovable: 1
   startSlot: {fileID: 0}
   cg: {fileID: 2670730412149427497}
+  rt: {fileID: 2670730412149427491}
   references:
     version: 1
     00000000:
