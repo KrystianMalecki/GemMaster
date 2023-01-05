@@ -87,6 +87,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -97,10 +98,10 @@ TextureImporter:
     serializedVersion: 2
     filterMode: 0
     aniso: 1
-    mipBias: -100
+    mipBias: 0
     wrapU: 1
     wrapV: 1
-    wrapW: -1
+    wrapW: 0
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -118,6 +119,8 @@ TextureImporter:
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
@@ -179,7 +182,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 892ea0f08fd6afb20800000000000000
-      internalID: 3168966199980253848
+      internalID: -8317930434276704355
       vertices: []
       indices: 
       edges: []
@@ -200,7 +203,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: dce903347b4a38970800000000000000
-      internalID: 8756023207551606477
+      internalID: 4601570839718989165
       vertices: []
       indices: 
       edges: []
@@ -221,7 +224,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 8f201cd4f618babe0800000000000000
-      internalID: -1464934938733116680
+      internalID: -8537285615875563173
       vertices: []
       indices: 
       edges: []
@@ -242,7 +245,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: f6d1cafff3bd1ced0800000000000000
-      internalID: -2395392458865500817
+      internalID: 4269610342469000604
       vertices: []
       indices: 
       edges: []
@@ -530,6 +533,24 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      robes-Sheet_9: -7455845730739909188
+      robes-Sheet_10: 591213289610459167
+      robes-Sheet_2: -8537285615875563173
+      robes-Sheet_4: -3057257797751026015
+      robes-Sheet_15: -7016296014006508699
+      robes-Sheet_16: 6116558284165966313
+      robes-Sheet_14: -6627071781324222922
+      robes-Sheet_6: 2127676156444926061
+      robes-Sheet_3: 4269610342469000604
+      robes-Sheet_7: 1681879901430849797
+      robes-Sheet_8: 5559848347115491443
+      robes-Sheet_12: 7582631880088500063
+      robes-Sheet_13: -6579487428879950600
+      robes-Sheet_11: 6281231713898791778
+      robes-Sheet_1: 4601570839718989165
+      robes-Sheet_0: -8317930434276704355
+      robes-Sheet_5: -8823648610389859073
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

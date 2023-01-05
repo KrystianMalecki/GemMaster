@@ -168,6 +168,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -178,10 +179,10 @@ TextureImporter:
     serializedVersion: 2
     filterMode: 0
     aniso: 1
-    mipBias: -100
+    mipBias: 0
     wrapU: 1
     wrapV: 1
-    wrapW: -1
+    wrapW: 0
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -199,6 +200,8 @@ TextureImporter:
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
@@ -1262,6 +1265,55 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      cube-Sheet_21: 8129456650500898783
+      cube-Sheet_17: 140055795029447449
+      cube-Sheet_20: 3590109381796338989
+      cube-Sheet_10: -5804974434297231566
+      cube-Sheet_30: -3519246624168456013
+      cube-Sheet_32: 8877495857930009102
+      cube-Sheet_16: 3031680679804726937
+      cube-Sheet_31: 3844625605071877671
+      cube-Sheet_15: -6385148347623855842
+      cube-Sheet_28: -8364355179611320724
+      cube-Sheet_33: 3860326035621481537
+      cube-Sheet_0: 4494543694736528955
+      cube-Sheet_6: -7088548013116586608
+      cube-Sheet_19: 5198971165582197268
+      cube-Sheet_44: -2564943378848678810
+      cube-Sheet_34: -3135214541774710164
+      cube-Sheet_23: -5469512863526987498
+      cube-Sheet_45: 2858041244785054467
+      cube-Sheet_3: -4820163721742903586
+      cube-Sheet_27: 4285077403390970863
+      cube-Sheet_14: 1869631009997666984
+      cube-Sheet_9: -4587013624746678301
+      cube-Sheet_25: 1098436731524611071
+      cube-Sheet_36: -4231703696928801614
+      cube-Sheet_47: 4065033935714950023
+      cube-Sheet_4: 1394258281388340341
+      cube-Sheet_2: -553951784231489003
+      cube-Sheet_42: -2146143778525672239
+      cube-Sheet_7: -583009966692883079
+      cube-Sheet_8: 4346519250976799989
+      cube-Sheet_39: 5539751031217815309
+      cube-Sheet_40: 9081698610404100031
+      cube-Sheet_35: -6518194808549469486
+      cube-Sheet_26: 5037835333273803539
+      cube-Sheet_29: -1912703421836085953
+      cube-Sheet_12: 5276827845344796973
+      cube-Sheet_41: -8877620082482897867
+      cube-Sheet_11: 8049394484707253645
+      cube-Sheet_1: -7209472504333445898
+      cube-Sheet_24: -6597360159922189645
+      cube-Sheet_46: 1247291068013366367
+      cube-Sheet_5: 9063375692227660211
+      cube-Sheet_13: -5231698951387278173
+      cube-Sheet_22: -5125725028237993320
+      cube-Sheet_18: 5369834538050000369
+      cube-Sheet_38: 7649811222941156076
+      cube-Sheet_43: 2582233866975313010
+      cube-Sheet_37: 1747292603746212988
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

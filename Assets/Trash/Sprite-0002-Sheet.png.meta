@@ -99,6 +99,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -109,10 +110,10 @@ TextureImporter:
     serializedVersion: 2
     filterMode: 0
     aniso: 1
-    mipBias: -100
+    mipBias: 0
     wrapU: 1
     wrapV: 1
-    wrapW: -1
+    wrapW: 0
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -130,6 +131,8 @@ TextureImporter:
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
@@ -647,6 +650,29 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      Sprite-0002-Sheet_4: 4439951221471878829
+      Sprite-0002-Sheet_9: -6445166490165327900
+      Sprite-0002-Sheet_11: 8196670902797331459
+      Sprite-0002-Sheet_3: -774171364642349061
+      Sprite-0002-Sheet_0: 54620541728290854
+      Sprite-0002-Sheet_17: -4042676593105353903
+      Sprite-0002-Sheet_18: 4346668824383858629
+      Sprite-0002-Sheet_13: 1156632892089780469
+      Sprite-0002-Sheet_8: -2049467653533957581
+      Sprite-0002-Sheet_14: -8117656212705894639
+      Sprite-0002-Sheet_7: -5832073386481993379
+      Sprite-0002-Sheet_6: 2045765137284499509
+      Sprite-0002-Sheet_21: -6414010751941650528
+      Sprite-0002-Sheet_20: -2553504770133722016
+      Sprite-0002-Sheet_12: 4431139922622870564
+      Sprite-0002-Sheet_19: -214190316978189535
+      Sprite-0002-Sheet_15: -6085470042097384395
+      Sprite-0002-Sheet_1: 7977414170037210279
+      Sprite-0002-Sheet_5: 947299383180256026
+      Sprite-0002-Sheet_2: -6017161630642107537
+      Sprite-0002-Sheet_16: 9178475945090613712
+      Sprite-0002-Sheet_10: -5205018753010873798
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

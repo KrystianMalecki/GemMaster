@@ -3,7 +3,7 @@
 using System.Collections.Generic;
 using System.Reflection;
 using UnityEngine;
-using UnityEngine.Experimental.Rendering.Universal;
+
 
 /// <summary>
 /// It extends the ShadowCaster2D class in order to be able to modify some private data members.
@@ -18,9 +18,9 @@ public static class ShadowCaster2DExtensions
     /// </remarks>
     /// <param name="shadowCaster">The object to modify.</param>
     /// <param name="path">The new path to define the shape of the shadow caster.</param>
-    public static void SetPath(this ShadowCaster2D shadowCaster, Vector3[] path)
+    public static void SetPath(this UnityEngine.Rendering.Universal.ShadowCaster2D shadowCaster, Vector3[] path)
     {
-        FieldInfo shapeField = typeof(ShadowCaster2D).GetField("m_ShapePath",
+        FieldInfo shapeField = typeof(UnityEngine.Rendering.Universal.ShadowCaster2D).GetField("m_ShapePath",
                                                                BindingFlags.NonPublic |
                                                                BindingFlags.Instance);
         shapeField.SetValue(shadowCaster, path);
@@ -34,9 +34,9 @@ public static class ShadowCaster2DExtensions
     /// </remarks>
     /// <param name="shadowCaster">The object to modify.</param>
     /// <param name="hash">The new hash key to store. It must be different from the previous key to produce the rebuild. You can use a random number.</param>
-    public static void SetPathHash(this ShadowCaster2D shadowCaster, int hash)
+    public static void SetPathHash(this UnityEngine.Rendering.Universal.ShadowCaster2D shadowCaster, int hash)
     {
-        FieldInfo hashField = typeof(ShadowCaster2D).GetField("m_ShapePathHash",
+        FieldInfo hashField = typeof(UnityEngine.Rendering.Universal.ShadowCaster2D).GetField("m_ShapePathHash",
                                                               BindingFlags.NonPublic |
                                                               BindingFlags.Instance);
         hashField.SetValue(shadowCaster, hash);
@@ -77,7 +77,7 @@ public class ShadowCaster2DGenerator
         // First, it destroys the existing shadow casters
         if (collider.transform.childCount == 1)
         {
-            ShadowCaster2D[] existingShadowCasters = collider.transform.GetChild(0).GetComponentsInChildren<ShadowCaster2D>();
+            UnityEngine.Rendering.Universal.ShadowCaster2D[] existingShadowCasters = collider.transform.GetChild(0).GetComponentsInChildren<UnityEngine.Rendering.Universal.ShadowCaster2D>();
 
             for (int i = 0; i < existingShadowCasters.Length; ++i)
             {
@@ -109,7 +109,7 @@ public class ShadowCaster2DGenerator
                 pointsInPath3D.Add(pointsInPath[j]);
             }
 
-            ShadowCaster2D component = newShadowCaster.AddComponent<ShadowCaster2D>();
+            UnityEngine.Rendering.Universal.ShadowCaster2D component = newShadowCaster.AddComponent<UnityEngine.Rendering.Universal.ShadowCaster2D>();
             component.SetPath(pointsInPath3D.ToArray());
             component.SetPathHash(Random.Range(int.MinValue, int.MaxValue)); // The hashing function GetShapePathHash could be copied from the LightUtility class
             component.selfShadows = true;

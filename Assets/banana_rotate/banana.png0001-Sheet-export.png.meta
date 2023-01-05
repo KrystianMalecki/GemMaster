@@ -78,6 +78,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -88,10 +89,10 @@ TextureImporter:
     serializedVersion: 2
     filterMode: 0
     aniso: 1
-    mipBias: -100
+    mipBias: 0
     wrapU: 1
     wrapV: 1
-    wrapW: -1
+    wrapW: 0
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -109,6 +110,8 @@ TextureImporter:
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
@@ -542,6 +545,25 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      banana.png0001-Sheet-export_12: -4314794596118630770
+      banana.png0001-Sheet-export_5: 4306068585491702872
+      banana.png0001-Sheet-export_10: -8671233414236648750
+      banana.png0001-Sheet-export_1: 9165332442871910511
+      banana.png0001-Sheet-export_11: -1868155010390711880
+      banana.png0001-Sheet-export_14: 2424260170586323807
+      banana.png0001-Sheet-export_4: 8120907861709969429
+      banana.png0001-Sheet-export_8: -9112567259241320772
+      banana.png0001-Sheet-export_3: -7258327196604661039
+      banana.png0001-Sheet-export_13: 6143144905949199096
+      banana.png0001-Sheet-export_6: -128683046684156486
+      banana.png0001-Sheet-export_7: -8598100745612618035
+      banana.png0001-Sheet-export_9: -1075936891039322931
+      banana.png0001-Sheet-export_15: -7340586671149890206
+      banana.png0001-Sheet-export_16: -8623474441986012010
+      banana.png0001-Sheet-export_0: -9112139580807364636
+      banana.png0001-Sheet-export_2: -8442689125847357498
+      banana.png0001-Sheet-export_17: -1309466941190545669
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
